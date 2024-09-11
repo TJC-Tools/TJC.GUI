@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+using System.Reflection;
+using TJC.GUI.Menu.Help;
 
 namespace TJC.GUI.Menu;
 
@@ -6,34 +7,17 @@ public static class MenuFactory
 {
     public static IEnumerable<MenuItem> GetMenuItems(Assembly? assembly = null)
     {
-        var mainMenuItems = GetMainMenuItems(assembly);
-        return [];
+        var mainMenuItems = GetMainMenuItems(assembly ?? Assembly.GetCallingAssembly());
+        var menuItems = mainMenuItems.Select(x => x.GetMenuItem()).OfType<MenuItem>();
+        menuItems = menuItems.Where(x => x.Items.Count > 0);
+
+        return menuItems;
     }
 
-    internal static IEnumerable<IMainMenuItem> GetMainMenuItems(Assembly? assembly)
+    internal static IEnumerable<IMainMenuItem> GetMainMenuItems(Assembly assembly)
     {
-        MenuSettings.Instance.Assembly = assembly ?? Assembly.GetCallingAssembly();
+        MenuSettings.Instance.Assembly = assembly;
 
-        var menuItems = new List<MenuItem>
-        {
-            new MenuItem
-            {
-                Header = "File",
-                Items =
-                {
-                    new MenuItem { Header = "Exit" }
-                }
-            },
-            new MenuItem
-            {
-                Header = "Help",
-                Items =
-                {
-                    new MenuItem { Header = "About" }
-                }
-            }
-        };
-
-        return [];
+        yield return new HelpMenu();
     }
 }
