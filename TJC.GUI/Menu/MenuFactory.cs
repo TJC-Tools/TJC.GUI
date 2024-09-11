@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using TJC.GUI.Menu.Help;
 
 namespace TJC.GUI.Menu;

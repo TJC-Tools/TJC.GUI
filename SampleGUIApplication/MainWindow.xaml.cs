@@ -1,4 +1,4 @@
-﻿using SampleGUIApplication.ViewModels;
+using SampleGUIApplication.ViewModels;
 using System.Windows;
 
 namespace SampleGUIApplication
