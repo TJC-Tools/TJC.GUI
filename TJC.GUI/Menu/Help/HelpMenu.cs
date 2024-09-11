@@ -2,7 +2,7 @@
 
 internal class HelpMenu : MenuItemBase, IMainMenuItem
 {
-    public override string Header => "Help";
+    public override string Header => "_Help";
 
     protected override IEnumerable<ISubMenuItem> GetSubMenuItems()
     {
