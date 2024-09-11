@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!-- DETAILS -->
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
     <Title>TJC GUI</Title>
     <Description>Graphical User Interface Extensions</Description>
     <Authors>Tyler Carrol</Authors>
@@ -33,7 +34,8 @@
   </ItemGroup>
   <!-- DEPENDENCIES -->
   <ItemGroup>
-    <!-- N/A -->
+    <PackageReference Include="TJC.AssemblyExtensions" Version="0.1.5" />
+    <PackageReference Include="TJC.Singleton" Version="0.1.8" />
   </ItemGroup>
   <!-- TESTS -->
   <ItemGroup>
