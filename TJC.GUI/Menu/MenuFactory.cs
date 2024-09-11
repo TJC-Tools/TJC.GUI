@@ -9,6 +9,7 @@ public static class MenuFactory
     {
         var mainMenuItems = GetMainMenuItems(assembly ?? Assembly.GetCallingAssembly());
         var menuItems = mainMenuItems.Select(x => x.GetMenuItem());
+        menuItems = menuItems.Where(x => x.Items.Count > 0);
         return menuItems;
     }
 
