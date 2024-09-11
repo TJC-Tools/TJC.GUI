@@ -35,6 +35,7 @@
   <!-- DEPENDENCIES -->
   <ItemGroup>
     <PackageReference Include="TJC.AssemblyExtensions" Version="0.1.5" />
+    <PackageReference Include="TJC.Inclusion" Version="0.1.6" />
     <PackageReference Include="TJC.Singleton" Version="0.1.8" />
   </ItemGroup>
   <!-- TESTS -->
