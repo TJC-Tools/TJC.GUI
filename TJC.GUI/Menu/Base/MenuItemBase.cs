@@ -1,6 +1,6 @@
 ﻿using TJC.GUI.Menu.Commands;
 
-namespace TJC.GUI.Menu;
+namespace TJC.GUI.Menu.Base;
 
 internal abstract class MenuItemBase : IMenuItem
 {
