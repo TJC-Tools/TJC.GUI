@@ -21,6 +21,8 @@ internal class AboutMenuItem : MenuItemBase, ISubMenuItem
 
     public AboutMenuItem()
     {
+        if (MenuSettings.Instance.Assembly == null)
+            throw new NullReferenceException("Assembly is null.");
         _title = MenuSettings.Instance.Assembly.GetTitle();
         _version = MenuSettings.Instance.Assembly.GetName().Version;
         _license = MenuSettings.Instance.Assembly.GetLicense();
