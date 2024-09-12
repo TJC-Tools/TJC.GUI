@@ -1,15 +1,13 @@
-﻿using System.Windows.Controls;
-using TJC.GUI.Menu;
+﻿using TJC.GUI.Menu;
 
-namespace SampleGUIApplication.ViewModels
+namespace SampleGUIApplication.ViewModels;
+
+public class MainViewModel : ViewModelBase
 {
-    class MainViewModel
+    public MainViewModel()
     {
-        public MainViewModel()
-        {
-            MenuItems = MenuFactory.GetMenuItems();
-        }
-
-        public IEnumerable<MenuItem> MenuItems { get; }
+        MenuItems = MenuFactory.GetMenuItems().ToList();
     }
+
+    public List<MenuItem> MenuItems { get; }
 }
