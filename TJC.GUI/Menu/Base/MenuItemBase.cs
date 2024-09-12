@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Avalonia.Threading;
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace TJC.GUI.Menu.Base;
 
@@ -15,25 +17,19 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
         MenuItem? menuItem = null;
 
-        // Run the code in an STA thread since we are creating a UI element
-        if (Application.Current != null)
+        // Check if we are on the UI thread
+        if (Dispatcher.UIThread.CheckAccess())
         {
-            Application.Current.Dispatcher.Invoke(delegate
-            {
-                menuItem = DoGetMenuItem();
-            });
+            // We are on the UI thread, so directly execute
+            menuItem = DoGetMenuItem();
         }
         else
         {
-            // This thread is for unit tests (which don't have an Application.Current)
-            var thread = new Thread(() =>
+            // Run on the UI thread using the dispatcher
+            Dispatcher.UIThread.InvokeAsync(() =>
             {
                 menuItem = DoGetMenuItem();
-            });
-
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-            thread.Join(); // Wait for the thread to complete
+            }).GetAwaiter().GetResult();
         }
 
         return menuItem;
@@ -41,15 +37,27 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private MenuItem DoGetMenuItem()
     {
-        var command = new RelayCommand(_settings.Execute ?? Execute, _settings.CanExecute ?? CanExecute);
         var subMenuItems = GetSubMenuItems().GetMenuItems();
         var menuItem = new MenuItem
         {
             Header = _settings.Header ?? Header,
-            Command = command,
+            Command = CreateCommand(),
             ItemsSource = subMenuItems
         };
         return menuItem;
+    }
+
+    private ReactiveCommand<Unit, Unit> CreateCommand()
+    {
+        // Use default Execute and CanExecute if they are not provided
+        var execute = _settings.Execute ?? Execute;
+        var canExecute = _settings.CanExecute ?? CanExecute;
+
+        // Convert the canExecute predicate to an observable
+        var canExecuteObservable = Observable.Defer(() => Observable.Return(canExecute()));
+
+        // Create and return the ReactiveCommand
+        return ReactiveCommand.Create(execute, canExecuteObservable);
     }
 
     protected virtual IEnumerable<ISubMenuItem> GetSubMenuItems()
@@ -57,11 +65,11 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
         return [];
     }
 
-    protected virtual void Execute(object? obj)
+    protected virtual void Execute()
     {
     }
 
-    protected virtual bool CanExecute(object? obj)
+    protected virtual bool CanExecute()
     {
         return true;
     }
