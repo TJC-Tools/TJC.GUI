@@ -1,4 +1,4 @@
-﻿namespace TJC.GUI.Menu.Help;
+﻿namespace TJC.GUI.Menu.Items.Help;
 
 internal class HelpMenu() : MenuItemBase(MenuItemSettings.MainMenu), IMainMenuItem
 {

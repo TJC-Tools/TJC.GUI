@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TJC.GUI.Menu.Help;
+namespace TJC.GUI.Menu.Items.Help;
 
 /// <summary>
 /// On click, displays a popup with information about the application.

@@ -1,5 +1,5 @@
 using System.Reflection;
-using TJC.GUI.Menu.Help;
+using TJC.GUI.Menu.Items.Help;
 
 namespace TJC.GUI.Menu;
 
