@@ -2,12 +2,17 @@
 
 namespace TJC.GUI.Menu.Base;
 
-internal abstract class MenuItemBase : IMenuItem
+internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 {
+    private readonly MenuItemSettings _settings = settings;
+
     public abstract string Header { get; }
 
-    public MenuItem GetMenuItem()
+    public MenuItem? GetMenuItem()
     {
+        if (!_settings.Include)
+            return null;
+
         MenuItem? menuItem = null;
 
         // Run the code in an STA thread since we are creating a UI element
@@ -31,18 +36,16 @@ internal abstract class MenuItemBase : IMenuItem
             thread.Join(); // Wait for the thread to complete
         }
 
-#pragma warning disable CS8603 // Possible null reference return.
         return menuItem;
-#pragma warning restore CS8603 // Ignored because menuItem is always set in one thread or another from DoGetMenuItem
     }
 
     private MenuItem DoGetMenuItem()
     {
-        var command = new RelayCommand(Execute, CanExecute);
-        var subMenuItems = GetSubMenuItems().Select(x => x.GetMenuItem()).ToList();
+        var command = new RelayCommand(_settings.Execute ?? Execute, _settings.CanExecute ?? CanExecute);
+        var subMenuItems = GetSubMenuItems().GetMenuItems();
         var menuItem = new MenuItem
         {
-            Header = Header,
+            Header = _settings.Header ?? Header,
             Command = command,
             ItemsSource = subMenuItems
         };
@@ -58,5 +61,8 @@ internal abstract class MenuItemBase : IMenuItem
     {
     }
 
-    protected virtual bool CanExecute(object? obj) => true;
+    protected virtual bool CanExecute(object? obj)
+    {
+        return true;
+    }
 }
