@@ -2,10 +2,9 @@
 	<!-- DETAILS -->
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<UseWPF>true</UseWPF>
 		<AssemblyTitle>Sample GUI Application</AssemblyTitle>
 		<Copyright>
 			Copyright © 2024 Tyler Carrol - All rights reserved.
@@ -24,6 +23,13 @@
 			<PackagePath>\</PackagePath>
 		</None>
 		<EmbeddedResource Include="..\LICENSE" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Avalonia" Version="11.1.3" />
+	  <PackageReference Include="Avalonia.Desktop" Version="11.1.3" />
+	  <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.3" />
+	  <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.3" />
+	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.3" />
 	</ItemGroup>
 	<!-- DEPENDENCIES -->
 	<ItemGroup>

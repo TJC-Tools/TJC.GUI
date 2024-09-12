@@ -10,7 +10,7 @@ internal class ExitCommand : MenuItemBase, ISubMenuItem
 
     public override string Header => "E_xit";
 
-    protected override void Execute(object? obj = null)
+    protected override void Execute()
     {
         Environment.Exit(0);
     }

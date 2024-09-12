@@ -2,8 +2,8 @@
 {
     public class MenuItemSettings(bool include,
                                   string? header = null,
-                                  Action<object?>? execute = null,
-                                  Predicate<object?>? canExecute = null)
+                                  Action? execute = null,
+                                  Func<bool>? canExecute = null)
     {
         #region Predefined Types
 
@@ -17,9 +17,9 @@
 
         public string? Header { get; } = header;
 
-        public Action<object?>? Execute { get; } = execute;
+        public Action? Execute { get; } = execute;
 
-        public Predicate<object?>? CanExecute { get; } = canExecute;
+        public Func<bool>? CanExecute { get; } = canExecute;
 
         #endregion
     }

@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <!-- DETAILS -->
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
     <Title>TJC GUI</Title>
     <Description>Graphical User Interface Extensions</Description>
     <Authors>Tyler Carrol</Authors>
@@ -34,6 +33,9 @@
   </ItemGroup>
   <!-- DEPENDENCIES -->
   <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.1.3" />
+    <PackageReference Include="MessageBox.Avalonia" Version="3.1.6" />
+    <PackageReference Include="ReactiveUI" Version="20.1.1" />
     <PackageReference Include="TJC.AssemblyExtensions" Version="0.1.5" />
     <PackageReference Include="TJC.Inclusion" Version="0.1.6" />
     <PackageReference Include="TJC.Singleton" Version="0.1.8" />
