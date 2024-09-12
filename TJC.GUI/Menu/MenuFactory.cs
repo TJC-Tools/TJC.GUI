@@ -1,5 +1,6 @@
 using System.Reflection;
-using TJC.GUI.Menu.Help;
+using TJC.GUI.Menu.Items.File;
+using TJC.GUI.Menu.Items.Help;
 
 namespace TJC.GUI.Menu;
 
@@ -18,6 +19,7 @@ public static class MenuFactory
     {
         MenuSettings.Instance.Assembly = assembly;
 
+        yield return new FileMenu();
         yield return new HelpMenu();
     }
 }

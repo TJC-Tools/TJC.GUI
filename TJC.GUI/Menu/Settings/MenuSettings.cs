@@ -5,13 +5,37 @@ namespace TJC.GUI.Menu.Settings;
 
 public class MenuSettings : SingletonBase<MenuSettings>
 {
+    #region Singleton Constructor
+
     private MenuSettings()
     {
     }
 
+    #endregion
+
+    #region Properties
+
     internal Assembly? Assembly { get; set; }
 
+    #region Items
+
+    #region File
+
+    public MenuItemSettings Exit { get; } = new(true);
+
+    #endregion
+
+    #region Help
+
     public MenuItemSettings About { get; } = new(true);
+
+    #endregion
+
+    #endregion
+
+    #endregion
+
+    #region Methods
 
     private IEnumerable<MenuItemSettings> GetSettings() =>
         GetType().GetProperties().Where(x => x.PropertyType == typeof(MenuItemSettings)).Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
@@ -27,4 +51,6 @@ public class MenuSettings : SingletonBase<MenuSettings>
         foreach (var setting in GetSettings())
             setting.Include.Exclude();
     }
+
+    #endregion
 }
