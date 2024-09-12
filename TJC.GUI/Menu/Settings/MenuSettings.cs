@@ -3,7 +3,7 @@ using TJC.Singleton;
 
 namespace TJC.GUI.Menu.Settings;
 
-public class MenuSettings : SingletonBase<MenuSettings>, IIncludable
+public class MenuSettings : SingletonBase<MenuSettings>
 {
     private MenuSettings()
     {
@@ -13,7 +13,18 @@ public class MenuSettings : SingletonBase<MenuSettings>, IIncludable
 
     public MenuItemSettings About { get; } = new(true);
 
-    public void IncludeAllMenus() => this.IncludeAll();
+    private IEnumerable<MenuItemSettings> GetSettings() =>
+        GetType().GetProperties().Where(x => x.PropertyType == typeof(MenuItemSettings)).Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
 
-    public void ExcludeAllMenus() => this.ExcludeAll();
+    public void IncludeAllMenus()
+    {
+        foreach (var setting in GetSettings())
+            setting.Include.Include();
+    }
+
+    public void ExcludeAllMenus()
+    {
+        foreach (var setting in GetSettings())
+            setting.Include.Exclude();
+    }
 }
