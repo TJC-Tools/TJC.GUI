@@ -1,12 +1,11 @@
 ﻿namespace TJC.GUI.Menu.Help;
 
-internal class HelpMenu : MenuItemBase, IMainMenuItem
+internal class HelpMenu() : MenuItemBase(MenuItemSettings.MainMenu), IMainMenuItem
 {
     public override string Header => "_Help";
 
     protected override IEnumerable<ISubMenuItem> GetSubMenuItems()
     {
-        if (MenuSettings.Instance.About)
-            yield return new AboutMenuItem();
+        yield return new AboutPage();
     }
 }

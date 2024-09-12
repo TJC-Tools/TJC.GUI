@@ -12,14 +12,14 @@ namespace TJC.GUI.Menu.Help;
 /// <para>Add Logo, Edition, License Terms, Licensed to (username/company), Installed Products (tools, plugins, etc.)</para>
 /// <para>Links to website, etc.</para>
 /// </summary>
-internal class AboutMenuItem : MenuItemBase, ISubMenuItem
+internal class AboutPage : MenuItemBase, ISubMenuItem
 {
     private readonly string? _title;
     private readonly Version? _version;
     private readonly string _license;
     private readonly string _copyright;
 
-    public AboutMenuItem()
+    public AboutPage() : base(MenuSettings.Instance.About)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");
