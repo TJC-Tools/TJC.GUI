@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using MsBox.Avalonia;
 
 namespace TJC.GUI.Menu.Items.Help;
 
@@ -31,7 +31,7 @@ internal class AboutPage : MenuItemBase, ISubMenuItem
 
     public override string Header => "_About";
 
-    protected override void Execute(object? obj = null)
+    protected override void Execute()
     {
         var popup = string.Empty;
 
@@ -47,6 +47,7 @@ internal class AboutPage : MenuItemBase, ISubMenuItem
         if (!string.IsNullOrEmpty(_license))
             popup += $"License:\n{_license}";
 
-        MessageBox.Show(popup, $"About {_title}");
+        var messagebox = MessageBoxManager.GetMessageBoxStandard($"About {_title}", popup);
+        messagebox.ShowAsync();
     }
 }
