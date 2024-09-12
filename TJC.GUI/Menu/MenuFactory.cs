@@ -8,7 +8,7 @@ public static class MenuFactory
     public static IEnumerable<MenuItem> GetMenuItems(Assembly? assembly = null)
     {
         var mainMenuItems = GetMainMenuItems(assembly ?? Assembly.GetCallingAssembly());
-        var menuItems = mainMenuItems.Select(x => x.GetMenuItem()).OfType<MenuItem>();
+        var menuItems = mainMenuItems.GetMenuItems();
         menuItems = menuItems.Where(x => x.Items.Count > 0);
 
         return menuItems;
