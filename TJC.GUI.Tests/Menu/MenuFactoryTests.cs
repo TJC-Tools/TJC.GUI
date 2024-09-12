@@ -50,7 +50,7 @@ namespace TJC.GUI.Tests.Menu
         {
             // Arrange
             MenuSettings.Instance.ExcludeAllMenus();
-            MenuSettings.Instance.About.Include();
+            MenuSettings.Instance.About.Include.Include();
 
             // Act
             var menuItems = MenuFactory.GetMenuItems().ToList();
