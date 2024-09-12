@@ -1,6 +1,4 @@
 using System.Reflection;
-using TJC.Inclusion.Extensions;
-using TJC.Inclusion.Interfaces;
 using TJC.Singleton;
 
 namespace TJC.GUI.Menu.Settings;
@@ -13,7 +11,7 @@ public class MenuSettings : SingletonBase<MenuSettings>, IIncludable
 
     internal Assembly? Assembly { get; set; }
 
-    public Inclusion.Inclusion About { get; } = new(true);
+    public MenuItemSettings About { get; } = new(true);
 
     public void IncludeAllMenus() => this.IncludeAll();
 
