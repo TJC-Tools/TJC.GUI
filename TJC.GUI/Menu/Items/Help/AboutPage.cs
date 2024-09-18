@@ -1,4 +1,4 @@
-﻿using MsBox.Avalonia;
+﻿using Avalonia.Controls.ApplicationLifetimes;
 
 namespace TJC.GUI.Menu.Items.Help;
 
@@ -33,21 +33,17 @@ internal class AboutPage : MenuItemBase, ISubMenuItem
 
     protected override void Execute()
     {
-        var popup = string.Empty;
+        var popup = new AboutPopup(title: _title,
+                                   version: _version,
+                                   copyright: _copyright,
+                                   license: _license);
 
-        if (!string.IsNullOrEmpty(_title))
-            popup += $"{_title}\n\n";
-
-        if (_version != null)
-            popup += $"Version: {_version}\n\n";
-
-        if (!string.IsNullOrEmpty(_copyright))
-            popup += $"{_copyright}\n\n";
-
-        if (!string.IsNullOrEmpty(_license))
-            popup += $"License:\n{_license}";
-
-        var messagebox = MessageBoxManager.GetMessageBoxStandard($"About {_title}", popup);
-        messagebox.ShowAsync();
+        // If Window can be found, show dialog to prevent main window from being clicked.
+        if (Avalonia.Application.Current?.ApplicationLifetime
+            is IClassicDesktopStyleApplicationLifetime desktop
+            && desktop.MainWindow != null)
+            popup.ShowDialog(desktop.MainWindow);
+        else
+            popup.Show();
     }
 }
