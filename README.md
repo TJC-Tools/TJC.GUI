@@ -1,4 +1,6 @@
-[![NuGet Version and Downloads count](https://buildstats.info/nuget/TJC.GUI)](https://www.nuget.org/packages/TJC.GUI)
+![GitHub Tag](https://img.shields.io/github/v/tag/TJC-Tools/TJC.GUI) ![NuGet Version](https://img.shields.io/nuget/v/TJC.GUI)
+
+![NuGet Downloads](https://img.shields.io/nuget/dt/TJC.GUI) ![Size](https://img.shields.io/github/repo-size/TJC-Tools/TJC.GUI) ![License](https://img.shields.io/github/license/TJC-Tools/TJC.GUI.svg)
 
 ## Menu
 
