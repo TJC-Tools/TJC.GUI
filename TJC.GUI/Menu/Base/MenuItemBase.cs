@@ -1,3 +1,5 @@
+﻿using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Input;
 using Avalonia.Threading;
 using System.Reactive;
 using System.Reactive.Linq;
@@ -16,6 +18,8 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     {
         if (!_settings.Include)
             return null;
+
+        InitializeStartupEvent();
 
         MenuItem? menuItem = null;
 
@@ -59,6 +63,25 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     #endregion
 
+    #region Events
+
+    private void InitializeStartupEvent()
+    {
+        if (Avalonia.Application.Current?.ApplicationLifetime
+            is IClassicDesktopStyleApplicationLifetime desktop)
+            desktop.Startup += (s, e) => OnStartup(desktop);
+    }
+
+    private void OnStartup(IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        if (desktop.MainWindow != null)
+            SetupGesture(desktop.MainWindow);
+    }
+
+    #endregion
+
+    #region Command
+
     private ReactiveCommand<Unit, Unit> CreateCommand()
     {
         // Use default Execute and CanExecute if they are not provided
@@ -80,4 +103,22 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     {
         return true;
     }
+
+    #endregion
+
+    #region Gesture
+
+    private void SetupGesture(Window window)
+    {
+        if (_settings.Gesture == null)
+            return;
+        var keybinding = new KeyBinding
+        {
+            Command = CreateCommand(),
+            Gesture = _settings.Gesture
+        };
+        window?.KeyBindings.Add(keybinding);
+    }
+
+    #endregion
 }
