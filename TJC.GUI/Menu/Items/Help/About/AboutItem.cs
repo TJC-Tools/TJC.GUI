@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls.ApplicationLifetimes;
 
-namespace TJC.GUI.Menu.Items.Help;
+namespace TJC.GUI.Menu.Items.Help.About;
 
 /// <summary>
 /// On click, displays a popup with information about the application.
@@ -12,14 +12,14 @@ namespace TJC.GUI.Menu.Items.Help;
 /// <para>Add Logo, Edition, License Terms, Licensed to (username/company), Installed Products (tools, plugins, etc.)</para>
 /// <para>Links to website, etc.</para>
 /// </summary>
-internal class AboutPage : MenuItemBase, ISubMenuItem
+internal class AboutItem : MenuItemBase, ISubMenuItem
 {
     private readonly string? _title;
     private readonly Version? _version;
     private readonly string _license;
     private readonly string _copyright;
 
-    public AboutPage() : base(MenuSettings.Instance.About)
+    public AboutItem() : base(MenuSettings.Instance.About)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");

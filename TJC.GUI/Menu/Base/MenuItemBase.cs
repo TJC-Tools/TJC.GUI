@@ -1,4 +1,6 @@
-﻿using Avalonia.Threading;
+﻿using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Input;
+using Avalonia.Threading;
 using System.Reactive;
 using System.Reactive.Linq;
 
@@ -10,10 +12,14 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     public abstract string Header { get; }
 
-    public MenuItem? GetMenuItem()
+    #region Create
+
+    public MenuItem? CreateMenuItem()
     {
         if (!_settings.Include)
             return null;
+
+        InitializeStartupEvent();
 
         MenuItem? menuItem = null;
 
@@ -38,14 +44,43 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     private MenuItem DoGetMenuItem()
     {
         var subMenuItems = GetSubMenuItems().GetMenuItems();
+        var header = _settings.Header ?? Header;
+        if (_settings.Gesture != null)
+            header += $" ({_settings.Gesture})";
         var menuItem = new MenuItem
         {
-            Header = _settings.Header ?? Header,
+            Header = header,
             Command = CreateCommand(),
             ItemsSource = subMenuItems
         };
         return menuItem;
     }
+
+    protected virtual IEnumerable<ISubMenuItem> GetSubMenuItems()
+    {
+        return [];
+    }
+
+    #endregion
+
+    #region Events
+
+    private void InitializeStartupEvent()
+    {
+        if (Avalonia.Application.Current?.ApplicationLifetime
+            is IClassicDesktopStyleApplicationLifetime desktop)
+            desktop.Startup += (s, e) => OnStartup(desktop);
+    }
+
+    private void OnStartup(IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        if (desktop.MainWindow != null)
+            SetupGesture(desktop.MainWindow);
+    }
+
+    #endregion
+
+    #region Command
 
     private ReactiveCommand<Unit, Unit> CreateCommand()
     {
@@ -60,11 +95,6 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
         return ReactiveCommand.Create(execute, canExecuteObservable);
     }
 
-    protected virtual IEnumerable<ISubMenuItem> GetSubMenuItems()
-    {
-        return [];
-    }
-
     protected virtual void Execute()
     {
     }
@@ -73,4 +103,22 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     {
         return true;
     }
+
+    #endregion
+
+    #region Gesture
+
+    private void SetupGesture(Window window)
+    {
+        if (_settings.Gesture == null)
+            return;
+        var keybinding = new KeyBinding
+        {
+            Command = CreateCommand(),
+            Gesture = _settings.Gesture
+        };
+        window?.KeyBindings.Add(keybinding);
+    }
+
+    #endregion
 }

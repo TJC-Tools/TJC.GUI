@@ -1,4 +1,7 @@
-﻿namespace TJC.GUI.Menu.Items.Help;
+﻿using TJC.GUI.Menu.Items.Help.About;
+using TJC.GUI.Menu.Items.Help.Help;
+
+namespace TJC.GUI.Menu.Items.Help;
 
 internal class HelpMenu() : MenuItemBase(MenuItemSettings.MainMenu), IMainMenuItem
 {
@@ -6,6 +9,7 @@ internal class HelpMenu() : MenuItemBase(MenuItemSettings.MainMenu), IMainMenuIt
 
     protected override IEnumerable<ISubMenuItem> GetSubMenuItems()
     {
-        yield return new AboutPage();
+        yield return new HelpItem();
+        yield return new AboutItem();
     }
 }
