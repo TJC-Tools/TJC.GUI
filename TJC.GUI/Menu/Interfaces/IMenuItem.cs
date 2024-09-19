@@ -2,5 +2,5 @@
 
 internal interface IMenuItem
 {
-    MenuItem? GetMenuItem();
+    MenuItem? CreateMenuItem();
 }

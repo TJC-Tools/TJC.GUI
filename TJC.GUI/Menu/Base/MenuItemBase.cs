@@ -1,4 +1,4 @@
-﻿using Avalonia.Threading;
+using Avalonia.Threading;
 using System.Reactive;
 using System.Reactive.Linq;
 
@@ -10,7 +10,9 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     public abstract string Header { get; }
 
-    public MenuItem? GetMenuItem()
+    #region Create
+
+    public MenuItem? CreateMenuItem()
     {
         if (!_settings.Include)
             return null;
@@ -47,6 +49,13 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
         return menuItem;
     }
 
+    protected virtual IEnumerable<ISubMenuItem> GetSubMenuItems()
+    {
+        return [];
+    }
+
+    #endregion
+
     private ReactiveCommand<Unit, Unit> CreateCommand()
     {
         // Use default Execute and CanExecute if they are not provided
@@ -58,11 +67,6 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
         // Create and return the ReactiveCommand
         return ReactiveCommand.Create(execute, canExecuteObservable);
-    }
-
-    protected virtual IEnumerable<ISubMenuItem> GetSubMenuItems()
-    {
-        return [];
     }
 
     protected virtual void Execute()
