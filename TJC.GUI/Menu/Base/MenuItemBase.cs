@@ -40,9 +40,12 @@ internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     private MenuItem DoGetMenuItem()
     {
         var subMenuItems = GetSubMenuItems().GetMenuItems();
+        var header = _settings.Header ?? Header;
+        if (_settings.Gesture != null)
+            header += $" ({_settings.Gesture})";
         var menuItem = new MenuItem
         {
-            Header = _settings.Header ?? Header,
+            Header = header,
             Command = CreateCommand(),
             ItemsSource = subMenuItems
         };
