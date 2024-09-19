@@ -1,3 +1,4 @@
+using Avalonia.Input;
 using System.Reflection;
 using TJC.Singleton;
 
@@ -28,6 +29,10 @@ public class MenuSettings : SingletonBase<MenuSettings>
     #region Help
 
     public MenuItemSettings About { get; } = new(true);
+
+    public MenuItemSettings Help { get; } = new(false, gesture: new KeyGesture(Key.F1));
+
+    public string HelpContent { get; set; } = string.Empty;
 
     #endregion
 
