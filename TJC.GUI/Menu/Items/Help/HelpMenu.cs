@@ -6,6 +6,6 @@ internal class HelpMenu() : MenuItemBase(MenuItemSettings.MainMenu), IMainMenuIt
 
     protected override IEnumerable<ISubMenuItem> GetSubMenuItems()
     {
-        yield return new AboutPage();
+        yield return new AboutItem();
     }
 }
