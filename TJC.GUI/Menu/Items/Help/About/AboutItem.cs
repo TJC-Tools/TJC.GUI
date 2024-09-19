@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls.ApplicationLifetimes;
 
-namespace TJC.GUI.Menu.Items.Help;
+namespace TJC.GUI.Menu.Items.Help.About;
 
 /// <summary>
 /// On click, displays a popup with information about the application.

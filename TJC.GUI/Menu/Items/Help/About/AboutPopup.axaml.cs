@@ -1,4 +1,4 @@
-namespace TJC.GUI.Menu.Items.Help
+namespace TJC.GUI.Menu.Items.Help.About
 {
     public partial class AboutPopup : Window
     {
