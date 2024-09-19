@@ -10,8 +10,8 @@ namespace TJC.GUI.Menu.Items.Help.About
         public AboutPopup(string? title = null,
                           Version? version = null,
                           string? copyright = null,
-                          string? license = null,
-                          string? thirdPartyLicenses = null) : this()
+                          string? license = null)
+            : this()
         {
             Title = $"About {title}";
 
