@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="{Binding DialogTitle}"
+		Width="300"
+		Height="150"
+		x:Class="TJC.GUI.Popups.Dialogs.Views.YesNoDialogView"
+		WindowStartupLocation="CenterScreen">
+	<StackPanel HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Spacing="10">
+		<TextBlock Text="{Binding DialogMessage}"
+				   HorizontalAlignment="Center" />
+		<StackPanel Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Spacing="10">
+			<Button Content="Yes" Width="75" Command="{Binding YesCommand}"/>
+			<Button Content="No" Width="75" Command="{Binding NoCommand}"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

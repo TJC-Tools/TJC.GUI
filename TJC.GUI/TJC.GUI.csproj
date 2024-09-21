@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <!-- DETAILS -->
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -46,6 +46,7 @@
       <_Parameter1>TJC.GUI.Tests</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+  <!-- VIEWS -->
   <ItemGroup>
     <Compile Update="Menu\Items\Help\Help\HelpPopup.axaml.cs">
       <DependentUpon>HelpPopup.axaml</DependentUpon>
