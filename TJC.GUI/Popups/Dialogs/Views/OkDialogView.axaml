@@ -9,7 +9,11 @@
 				VerticalAlignment="Center"
 				Spacing="10">
 		<TextBlock Text="{Binding DialogMessage}"
-				   HorizontalAlignment="Center" />
-		<Button Content="OK" Width="75" Command="{Binding OkCommand}"/>
+			   HorizontalAlignment="Center"
+			   TextWrapping="Wrap"/>
+		<Button Content="OK"
+			Command="{Binding OkCommand}"
+			Width="75" 
+			HorizontalAlignment="Center"/>
 	</StackPanel>
 </Window>
