@@ -36,7 +36,7 @@
     <PackageReference Include="Avalonia" Version="11.1.3" />
     <PackageReference Include="MessageBox.Avalonia" Version="3.1.6" />
     <PackageReference Include="ReactiveUI" Version="20.1.63" />
-    <PackageReference Include="TJC.AssemblyExtensions" Version="0.1.5" />
+    <PackageReference Include="TJC.AssemblyExtensions" Version="0.1.6" />
     <PackageReference Include="TJC.Inclusion" Version="0.1.6" />
     <PackageReference Include="TJC.Singleton" Version="0.1.9" />
   </ItemGroup>
