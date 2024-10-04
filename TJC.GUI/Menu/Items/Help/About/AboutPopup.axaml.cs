@@ -1,41 +1,52 @@
-namespace TJC.GUI.Menu.Items.Help.About
+namespace TJC.GUI.Menu.Items.Help.About;
+
+public partial class AboutPopup : Window
 {
-    public partial class AboutPopup : Window
+    private const string TextSeparator = "\n===========================================================\n\n";
+
+    public AboutPopup()
     {
-        public AboutPopup()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        public AboutPopup(string? title = null,
-                          Version? version = null,
-                          string? copyright = null,
-                          string? license = null)
-            : this()
-        {
-            Title = $"About {title}";
+    public AboutPopup(string?  title              = null,
+                      Version? version            = null,
+                      string?  copyright          = null,
+                      string?  changelog          = null,
+                      string?  license            = null,
+                      string?  thirdPartyLicenses = null)
+        : this()
+    {
+        Title = $"About {title}";
 
-            SetSize();
+        SetSize();
 
-            VersionTextBlock.Text = $"Version: {version}";
-            VersionTextBlock.IsVisible = version != null;
+        VersionTextBlock.Text      = $"Version: {version}";
+        VersionTextBlock.IsVisible = version != null;
 
-            CopyrightTextBlock.Text = copyright;
-            CopyrightTextBlock.IsVisible = copyright != null;
+        CopyrightTextBlock.Text      = copyright;
+        CopyrightTextBlock.IsVisible = !string.IsNullOrEmpty(copyright);
 
-            LicenseTextBlock.Text = license;
-            LicenseTextBlock.IsVisible = license != null;
-        }
+        ChangelogTextBlock.Text    = changelog;
+        ChangelogSection.IsVisible = !string.IsNullOrEmpty(changelog);
 
-        private void SetSize()
-        {
-            Width = 500;
-            Height = 500;
-            MinWidth = 150;
-            MinHeight = 150;
-            MaxWidth = 1200;
-            MaxHeight = 800;
-            SizeToContent = SizeToContent.Height;
-        }
+        // Licenses
+        var combinedLicenses = license;
+        if (!string.IsNullOrEmpty(license) && !string.IsNullOrEmpty(thirdPartyLicenses))
+            combinedLicenses += TextSeparator;
+        combinedLicenses         += thirdPartyLicenses;
+        LicenseTextBlock.Text    =  combinedLicenses;
+        LicenseSection.IsVisible =  !string.IsNullOrEmpty(combinedLicenses);
+    }
+
+    private void SetSize()
+    {
+        Width         = 500;
+        Height        = 500;
+        MinWidth      = 150;
+        MinHeight     = 150;
+        MaxWidth      = 1200;
+        MaxHeight     = 800;
+        SizeToContent = SizeToContent.Height;
     }
 }
