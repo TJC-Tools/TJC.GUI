@@ -27,7 +27,7 @@ public partial class AboutPopup : Window
         CopyrightTextBlock.Text      = copyright;
         CopyrightTextBlock.IsVisible = !string.IsNullOrEmpty(copyright);
 
-        ChangelogTextBlock.Text    = changelog;
+        ChangelogBlock.Markdown    = changelog;
         ChangelogSection.IsVisible = !string.IsNullOrEmpty(changelog);
 
         // Licenses

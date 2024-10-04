@@ -2,6 +2,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:mdxaml="https://github.com/whistyun/Markdown.Avalonia.Tight"
 		mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
 		x:Class="TJC.GUI.Menu.Items.Help.About.AboutPopup"
 		Title="About Title">
@@ -33,14 +34,8 @@
                     <TextBlock Text="Changelog"
                                HorizontalAlignment="Center"/>
                 </Expander.Header>
-                <ScrollViewer>
-                    <TextBlock Name="ChangelogTextBlock"
-                               Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex metus, porttitor in nulla blandit, commodo convallis libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus eleifend sollicitudin leo a maximus. Donec a blandit quam, ut aliquet turpis. Quisque tristique, mauris efficitur tempor venenatis, nisi augue lobortis elit, quis laoreet risus nisl vitae massa. Donec a placerat risus. Sed a auctor neque. Curabitur tempor id lacus vel ultrices. Proin blandit non orci non finibus. Nullam posuere nisl enim, vel placerat magna laoreet iaculis."
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Margin="8"/>
-                </ScrollViewer>
+				<mdxaml:MarkdownScrollViewer Name="ChangelogBlock"
+                                             Markdown="# Example Header"/>
             </Expander>
 			<!-- LICENSES -->
 			<Expander DockPanel.Dock="Top"
