@@ -15,7 +15,7 @@ namespace TJC.GUI.Menu.Items.Help.Help
 
             SetSize();
 
-            ContentTextBlock.Text = content;
+            HelpBlock.Markdown = content;
         }
 
         private void SetSize()
