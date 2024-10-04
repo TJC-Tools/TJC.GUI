@@ -14,19 +14,23 @@ namespace TJC.GUI.Menu.Items.Help.About;
 /// </summary>
 internal class AboutItem : MenuItemBase, ISubMenuItem
 {
-    private readonly string? _title;
+    private readonly string?  _title;
     private readonly Version? _version;
-    private readonly string _license;
-    private readonly string _copyright;
+    private readonly string   _copyright;
+    private readonly string   _license;
+    private readonly string   _thirdPartyLicenses;
+    private readonly string   _changelog;
 
     public AboutItem() : base(MenuSettings.Instance.About)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");
-        _title = MenuSettings.Instance.Assembly.GetTitle();
-        _version = MenuSettings.Instance.Assembly.GetName().Version;
-        _license = MenuSettings.Instance.Assembly.GetLicense();
-        _copyright = MenuSettings.Instance.Assembly.GetCopyright();
+        _title              = MenuSettings.Instance.Assembly.GetTitle();
+        _version            = MenuSettings.Instance.Assembly.GetName().Version;
+        _copyright          = MenuSettings.Instance.Assembly.GetCopyright();
+        _license            = MenuSettings.Instance.Assembly.GetLicense();
+        _thirdPartyLicenses = MenuSettings.Instance.Assembly.GetThirdPartyLicenses();
+        _changelog          = MenuSettings.Instance.Assembly.GetChangelog();
     }
 
     public override string Header => "_About";
@@ -36,12 +40,13 @@ internal class AboutItem : MenuItemBase, ISubMenuItem
         var popup = new AboutPopup(title: _title,
                                    version: _version,
                                    copyright: _copyright,
-                                   license: _license);
+                                   changelog: _changelog,
+                                   license: _license,
+                                   thirdPartyLicenses: _thirdPartyLicenses);
 
         // If Window can be found, show dialog to prevent main window from being clicked.
         if (Avalonia.Application.Current?.ApplicationLifetime
-            is IClassicDesktopStyleApplicationLifetime desktop
-            && desktop.MainWindow != null)
+            is IClassicDesktopStyleApplicationLifetime { MainWindow: not null } desktop)
             popup.ShowDialog(desktop.MainWindow);
         else
             popup.Show();
