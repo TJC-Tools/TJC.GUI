@@ -35,7 +35,7 @@
                                HorizontalAlignment="Center"/>
                 </Expander.Header>
 				<mdxaml:MarkdownScrollViewer Name="ChangelogBlock"
-                                             Markdown="# Example Header"/>
+                                             Markdown="# Changelog"/>
             </Expander>
 			<!-- LICENSES -->
 			<Expander DockPanel.Dock="Top"
@@ -49,12 +49,8 @@
 							   HorizontalAlignment="Center"/>
 				</Expander.Header>
 				<ScrollViewer>
-					<TextBlock Name="LicenseTextBlock"
-							   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex metus, porttitor in nulla blandit, commodo convallis libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus eleifend sollicitudin leo a maximus. Donec a blandit quam, ut aliquet turpis. Quisque tristique, mauris efficitur tempor venenatis, nisi augue lobortis elit, quis laoreet risus nisl vitae massa. Donec a placerat risus. Sed a auctor neque. Curabitur tempor id lacus vel ultrices. Proin blandit non orci non finibus. Nullam posuere nisl enim, vel placerat magna laoreet iaculis."
-							   TextWrapping="Wrap"
-							   TextAlignment="Center"
-							   HorizontalAlignment="Center"
-							   Margin="8"/>
+                    <mdxaml:MarkdownScrollViewer Name="LicenseBlock"
+                                                 Markdown="# Licenses"/>
 				</ScrollViewer>
 			</Expander>
 		</DockPanel>

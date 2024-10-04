@@ -35,7 +35,7 @@ public partial class AboutPopup : Window
         if (!string.IsNullOrEmpty(license) && !string.IsNullOrEmpty(thirdPartyLicenses))
             combinedLicenses += TextSeparator;
         combinedLicenses         += thirdPartyLicenses;
-        LicenseTextBlock.Text    =  combinedLicenses;
+        LicenseBlock.Markdown    =  combinedLicenses;
         LicenseSection.IsVisible =  !string.IsNullOrEmpty(combinedLicenses);
     }
 
