@@ -18,11 +18,21 @@
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
+		<None Include="..\CHANGELOG.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<EmbeddedResource Include="..\CHANGELOG.md" />
 		<None Include="..\LICENSE">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
 		<EmbeddedResource Include="..\LICENSE" />
+		<None Include="..\THIRD-PARTY-LICENSES">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<EmbeddedResource Include="..\THIRD-PARTY-LICENSES" />
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Avalonia" Version="11.1.3" />
