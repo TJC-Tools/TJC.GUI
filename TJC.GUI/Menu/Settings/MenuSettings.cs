@@ -18,6 +18,12 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     internal Assembly? Assembly { get; set; }
 
+    /// <summary>
+    /// This is defaulted to true since Avalonia currently has a bug with sub-menu accelerator keys.
+    /// https://github.com/AvaloniaUI/Avalonia/issues/7090
+    /// </summary>
+    public Inclusion.Inclusion HideSubMenuAcceleratorKeys { get; } = new();
+
     #region Items
 
     #region File

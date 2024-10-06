@@ -43,8 +43,15 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private MenuItem DoGetMenuItem()
     {
-        var subMenuItems = GetSubMenuItems().CreateMenuItems();
+        // Create the header and remove the accelerator key if needed
         var header = settings.Header ?? Header;
+        if (MenuSettings.Instance.HideSubMenuAcceleratorKeys && this is ISubMenuItem)
+            header = header.Replace("_", string.Empty);
+
+        // Get the sub menu items
+        var subMenuItems = GetSubMenuItems().CreateMenuItems();
+
+        // Create the menu item
         var menuItem = new MenuItem
         {
             Header       = header,
