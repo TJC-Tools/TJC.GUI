@@ -10,6 +10,8 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 {
     public abstract string Header { get; }
 
+    public virtual KeyGesture? DefaultGesture => null;
+
     #region Create
 
     public MenuItem? CreateMenuItem()

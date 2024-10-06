@@ -30,7 +30,7 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     public MenuItemSettings About { get; } = new(true);
 
-    public MenuItemSettings Help { get; } = new(false, gesture: new KeyGesture(Key.F1));
+    public MenuItemSettings Help { get; } = new(false);
 
     public string HelpContent { get; set; } = string.Empty;
 

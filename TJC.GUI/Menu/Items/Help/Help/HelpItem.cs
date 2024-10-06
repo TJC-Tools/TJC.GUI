@@ -20,6 +20,8 @@ internal class HelpItem : MenuItemBase, ISubMenuItem
 
     public override string Header => "H_elp";
 
+    public override KeyGesture DefaultGesture => new(Key.F1);
+
     protected override void Execute()
     {
         var popup = new HelpPopup(title: _title,

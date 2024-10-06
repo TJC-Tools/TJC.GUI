@@ -10,6 +10,8 @@ internal class ExitCommand : MenuItemBase, ISubMenuItem
 
     public override string Header => "E_xit";
 
+    public override KeyGesture DefaultGesture => new(Key.F4, KeyModifiers.Alt);
+
     protected override void Execute()
     {
         Environment.Exit(0);
