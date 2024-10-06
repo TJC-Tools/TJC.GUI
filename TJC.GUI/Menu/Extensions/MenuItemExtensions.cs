@@ -56,7 +56,7 @@ public static class MenuItemExtensions
     /// <param name="menuItem"></param>
     /// <param name="subMenuItem"></param>
     /// <param name="index"></param>
-    public static void AddSubMenuItem(MenuItem menuItem, MenuItem subMenuItem, int index = -1)
+    public static void AddSubMenuItem(this MenuItem menuItem, MenuItem subMenuItem, int index = -1)
     {
         // If the menu item does not have any items, create a new list
         menuItem.ItemsSource ??= new List<MenuItem>();
