@@ -10,6 +10,8 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 {
     public abstract string Header { get; }
 
+    public virtual KeyGesture? DefaultGesture => null;
+
     #region Create
 
     public MenuItem? CreateMenuItem()
@@ -41,15 +43,21 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private MenuItem DoGetMenuItem()
     {
-        var subMenuItems = GetSubMenuItems().CreateMenuItems();
+        // Create the header and remove the accelerator key if needed
         var header = settings.Header ?? Header;
-        if (settings.Gesture != null)
-            header += $" ({settings.Gesture})";
+        if (MenuSettings.Instance.HideSubMenuAcceleratorKeys && this is ISubMenuItem)
+            header = header.Replace("_", string.Empty);
+
+        // Get the sub menu items
+        var subMenuItems = GetSubMenuItems().CreateMenuItems();
+
+        // Create the menu item
         var menuItem = new MenuItem
         {
-            Header = header,
-            Command = CreateCommand(),
-            ItemsSource = subMenuItems
+            Header       = header,
+            Command      = CreateCommand(),
+            ItemsSource  = subMenuItems,
+            InputGesture = settings.Gesture ?? DefaultGesture
         };
         return menuItem;
     }
