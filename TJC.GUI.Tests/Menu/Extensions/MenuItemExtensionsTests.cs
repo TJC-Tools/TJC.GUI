@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using TJC.GUI.Menu;
 using TJC.GUI.Menu.Extensions;
+using TJC.GUI.Menu.Settings;
 
 namespace TJC.GUI.Tests.Menu.Extensions;
 
@@ -11,6 +12,8 @@ public class MenuItemExtensionsTests
     public void FindMenuItem_File_ReturnsNotNull()
     {
         // Arrange
+        MenuSettings.Instance.ExcludeAllMenus();
+        MenuSettings.Instance.Exit.Include.Include();
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         // Act
@@ -25,7 +28,10 @@ public class MenuItemExtensionsTests
     public void AddSubMenuItem_ToStart_IsFirstItem()
     {
         // Arrange
-        var menuItems              = MenuFactory.CreateMenuItems().ToList();
+        MenuSettings.Instance.ExcludeAllMenus();
+        MenuSettings.Instance.Exit.Include.Include();
+        var menuItems = MenuFactory.CreateMenuItems().ToList();
+
         var fileMenu               = menuItems.FindMenuItem("FILE");
         var subMenuItemCountBefore = fileMenu?.ItemsSource?.Cast<object>().Count();
         var newSubMenuItem         = new MenuItem { Header = "New" };
@@ -45,7 +51,10 @@ public class MenuItemExtensionsTests
     public void AddSubMenuItem_ToEnd_IsLastItem()
     {
         // Arrange
-        var menuItems              = MenuFactory.CreateMenuItems().ToList();
+        MenuSettings.Instance.ExcludeAllMenus();
+        MenuSettings.Instance.Exit.Include.Include();
+        var menuItems = MenuFactory.CreateMenuItems().ToList();
+
         var fileMenu               = menuItems.FindMenuItem("FILE");
         var subMenuItemCountBefore = fileMenu?.ItemsSource?.Cast<object>().Count();
         var newSubMenuItem         = new MenuItem { Header = "New" };
