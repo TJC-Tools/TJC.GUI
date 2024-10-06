@@ -4,21 +4,46 @@ public static class MenuItemExtensions
 {
     /// <summary>
     /// Locate a menu item by its header.
+    /// If recursive is true, the search will be performed recursively (breadth-first) on all sub-menu items.
     /// </summary>
     /// <param name="menuItems"></param>
     /// <param name="header"></param>
+    /// <param name="recursive"></param>
     /// <returns></returns>
-    public static MenuItem? FindMenuItem(this IEnumerable<MenuItem> menuItems, string header)
+    public static MenuItem? FindMenuItem(this IEnumerable<MenuItem> menuItems, string header, bool recursive = false)
     {
+        // Convert the menu items to a list for easier manipulation
+        var menuItemList = menuItems.ToList();
+
         // Clean the header and menu item headers to make the search case-insensitive and ignore underscores
         var searchHeaderClean = header.ToLower().Replace("_", string.Empty);
-        foreach (var menuItem in menuItems)
+        foreach (var menuItem in menuItemList)
         {
+            // If the header is not a string, skip
             if (menuItem.Header is not string menuItemHeader)
                 continue;
+
+            // Clean the menu item header
             var menuItemHeaderClean = menuItemHeader.ToLower().Replace("_", string.Empty);
+
+            // If the headers match, return the menu item
             if (menuItemHeaderClean == searchHeaderClean)
                 return menuItem;
+        }
+
+        // If recursive search is not enabled, return null
+        if (!recursive)
+            return null;
+
+        // Search the sub-menu items recursively
+        foreach (var menuItem in menuItemList)
+        {
+            if (menuItem.ItemsSource is not IEnumerable<MenuItem> subMenuItems)
+                continue;
+
+            var foundMenuItem = subMenuItems.FindMenuItem(header, recursive);
+            if (foundMenuItem != null)
+                return foundMenuItem;
         }
 
         return null;
