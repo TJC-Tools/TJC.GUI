@@ -1,6 +1,6 @@
 ﻿namespace TJC.GUI.Menu.Interfaces;
 
-internal interface IMenuItem
+public interface IMenuItem
 {
     MenuItem? CreateMenuItem();
 }

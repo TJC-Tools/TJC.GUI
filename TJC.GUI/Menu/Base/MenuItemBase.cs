@@ -6,7 +6,7 @@ using System.Reactive.Linq;
 
 namespace TJC.GUI.Menu.Base;
 
-internal abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
+public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 {
     private readonly MenuItemSettings _settings = settings;
 
