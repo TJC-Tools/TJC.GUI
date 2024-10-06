@@ -5,7 +5,7 @@
 
 ## Menu
 
-### [MenuFactory.GetMenuItems()](TJC.GUI/Menu/MenuFactory.cs)
+### [MenuFactory.CreateMenuItems()](TJC.GUI/Menu/MenuFactory.cs)
 > Returns a list of `MenuItem` objects that represent the menu items for the application.
 
 ### [MenuSettings](TJC.GUI/Menu/Settings/MenuSettings.cs)
