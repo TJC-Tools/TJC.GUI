@@ -7,7 +7,7 @@ namespace TJC.GUI.Tests.Menu
     public class MenuFactoryTests
     {
         [TestMethod]
-        public void DefaultSettings_MenuFactory_GetMenuItems_ExpectSomeMenus()
+        public void DefaultSettings_MenuFactory_CreateMenuItems_ExpectSomeMenus()
         {
             // Act
             var menuItems = MenuFactory.CreateMenuItems().ToList();
@@ -18,7 +18,7 @@ namespace TJC.GUI.Tests.Menu
         }
 
         [TestMethod]
-        public void ExcludeAllMenus_MenuFactory_GetMenuItems_ExpectNoMenus()
+        public void ExcludeAllMenus_MenuFactory_CreateMenuItems_ExpectNoMenus()
         {
             // Arrange
             MenuSettings.Instance.ExcludeAllMenus();
@@ -32,7 +32,7 @@ namespace TJC.GUI.Tests.Menu
         }
 
         [TestMethod]
-        public void IncludeAllMenus_MenuFactory_GetMenuItems_ExpectMultipleMenus()
+        public void IncludeAllMenus_MenuFactory_CreateMenuItems_ExpectMultipleMenus()
         {
             // Arrange
             MenuSettings.Instance.IncludeAllMenus();
@@ -46,7 +46,7 @@ namespace TJC.GUI.Tests.Menu
         }
 
         [TestMethod]
-        public void ExcludeAllMenus_IncludeAbout_MenuFactory_GetMenuItems_Expect1Menu()
+        public void ExcludeAllMenus_IncludeAbout_MenuFactory_CreateMenuItems_Expect1Menu()
         {
             // Arrange
             MenuSettings.Instance.ExcludeAllMenus();
