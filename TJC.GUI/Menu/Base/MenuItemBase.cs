@@ -45,13 +45,12 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     {
         var subMenuItems = GetSubMenuItems().CreateMenuItems();
         var header = settings.Header ?? Header;
-        if (settings.Gesture != null)
-            header += $" ({settings.Gesture})";
         var menuItem = new MenuItem
         {
-            Header = header,
-            Command = CreateCommand(),
-            ItemsSource = subMenuItems
+            Header       = header,
+            Command      = CreateCommand(),
+            ItemsSource  = subMenuItems,
+            InputGesture = settings.Gesture ?? DefaultGesture
         };
         return menuItem;
     }
