@@ -22,7 +22,7 @@ public class MainViewModel : ViewModelBase
           + "Donec a placerat risus. Sed a auctor neque. Curabitur tempor id lacus vel ultrices. Proin blandit non orci non finibus. "
           + "Nullam posuere nisl enim, vel placerat magna laoreet iaculis.";
 
-        MenuItems = MenuFactory.GetMenuItems().ToList();
+        MenuItems = MenuFactory.CreateMenuItems().ToList();
     }
 
     public List<MenuItem> MenuItems { get; }

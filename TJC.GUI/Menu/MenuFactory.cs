@@ -6,16 +6,16 @@ namespace TJC.GUI.Menu;
 
 public static class MenuFactory
 {
-    public static IEnumerable<MenuItem> GetMenuItems(Assembly? assembly = null)
+    public static IEnumerable<MenuItem> CreateMenuItems(Assembly? assembly = null)
     {
-        var mainMenuItems = GetMainMenuItems(assembly ?? Assembly.GetCallingAssembly());
-        var menuItems = mainMenuItems.GetMenuItems();
+        var mainMenuItems = CreateMainMenuItems(assembly ?? Assembly.GetCallingAssembly());
+        var menuItems = mainMenuItems.CreateMenuItems();
         menuItems = menuItems.Where(x => x.Items.Count > 0);
 
         return menuItems;
     }
 
-    internal static IEnumerable<IMainMenuItem> GetMainMenuItems(Assembly assembly)
+    internal static IEnumerable<IMainMenuItem> CreateMainMenuItems(Assembly assembly)
     {
         MenuSettings.Instance.Assembly = assembly;
 

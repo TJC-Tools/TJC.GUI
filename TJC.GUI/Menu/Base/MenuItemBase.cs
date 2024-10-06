@@ -8,15 +8,13 @@ namespace TJC.GUI.Menu.Base;
 
 public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 {
-    private readonly MenuItemSettings _settings = settings;
-
     public abstract string Header { get; }
 
     #region Create
 
     public MenuItem? CreateMenuItem()
     {
-        if (!_settings.Include)
+        if (!settings.Include)
             return null;
 
         InitializeStartupEvent();
@@ -43,10 +41,10 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private MenuItem DoGetMenuItem()
     {
-        var subMenuItems = GetSubMenuItems().GetMenuItems();
-        var header = _settings.Header ?? Header;
-        if (_settings.Gesture != null)
-            header += $" ({_settings.Gesture})";
+        var subMenuItems = GetSubMenuItems().CreateMenuItems();
+        var header = settings.Header ?? Header;
+        if (settings.Gesture != null)
+            header += $" ({settings.Gesture})";
         var menuItem = new MenuItem
         {
             Header = header,
@@ -85,8 +83,8 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     private ReactiveCommand<Unit, Unit> CreateCommand()
     {
         // Use default Execute and CanExecute if they are not provided
-        var execute = _settings.Execute ?? Execute;
-        var canExecute = _settings.CanExecute ?? CanExecute;
+        var execute = settings.Execute ?? Execute;
+        var canExecute = settings.CanExecute ?? CanExecute;
 
         // Convert the canExecute predicate to an observable
         var canExecuteObservable = Observable.Defer(() => Observable.Return(canExecute()));
@@ -110,12 +108,12 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private void SetupGesture(Window window)
     {
-        if (_settings.Gesture == null)
+        if (settings.Gesture == null)
             return;
         var keybinding = new KeyBinding
         {
             Command = CreateCommand(),
-            Gesture = _settings.Gesture
+            Gesture = settings.Gesture
         };
         window?.KeyBindings.Add(keybinding);
     }
