@@ -10,7 +10,7 @@ namespace TJC.GUI.Tests.Menu
         public void DefaultSettings_MenuFactory_GetMenuItems_ExpectSomeMenus()
         {
             // Act
-            var menuItems = MenuFactory.GetMenuItems().ToList();
+            var menuItems = MenuFactory.CreateMenuItems().ToList();
 
             // Assert
             Assert.IsNotNull(menuItems);
@@ -24,7 +24,7 @@ namespace TJC.GUI.Tests.Menu
             MenuSettings.Instance.ExcludeAllMenus();
 
             // Act
-            var menuItems = MenuFactory.GetMenuItems().ToList();
+            var menuItems = MenuFactory.CreateMenuItems().ToList();
 
             // Assert
             Assert.IsNotNull(menuItems);
@@ -38,7 +38,7 @@ namespace TJC.GUI.Tests.Menu
             MenuSettings.Instance.IncludeAllMenus();
 
             // Act
-            var menuItems = MenuFactory.GetMenuItems().ToList();
+            var menuItems = MenuFactory.CreateMenuItems().ToList();
 
             // Assert
             Assert.IsNotNull(menuItems);
@@ -53,7 +53,7 @@ namespace TJC.GUI.Tests.Menu
             MenuSettings.Instance.About.Include.Include();
 
             // Act
-            var menuItems = MenuFactory.GetMenuItems().ToList();
+            var menuItems = MenuFactory.CreateMenuItems().ToList();
 
             // Assert
             Assert.IsNotNull(menuItems);
