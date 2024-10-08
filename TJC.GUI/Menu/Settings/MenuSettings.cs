@@ -1,4 +1,3 @@
-using Avalonia.Input;
 using System.Reflection;
 using TJC.Singleton;
 
@@ -36,8 +35,19 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     public MenuItemSettings About { get; } = new(true);
 
+    /// <summary>
+    /// The number of digits to display for the version.
+    /// Formats:
+    /// 3: v{major}.{minor}.{patch}.
+    /// 4: v{major}.{minor}.{build}.{revision}
+    /// </summary>
+    public int VersionDigits { get; set; } = 3;
+
     public MenuItemSettings Help { get; } = new(false);
 
+    /// <summary>
+    /// Contents of the help dialog.
+    /// </summary>
     public string HelpContent { get; set; } = string.Empty;
 
     #endregion
