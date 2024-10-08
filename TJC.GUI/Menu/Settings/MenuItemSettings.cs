@@ -4,7 +4,7 @@
                                   string? header = null,
                                   Action? execute = null,
                                   Func<bool>? canExecute = null,
-                                  Avalonia.Input.KeyGesture? gesture = null)
+                                  KeyGesture? gesture = null)
     {
         #region Predefined Types
 
@@ -22,7 +22,7 @@
 
         public Func<bool>? CanExecute { get; set; } = canExecute;
 
-        public Avalonia.Input.KeyGesture? Gesture { get; set; } = gesture;
+        public KeyGesture? Gesture { get; set; } = gesture;
 
         #endregion
     }
