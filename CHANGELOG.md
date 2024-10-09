@@ -11,32 +11,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changelog Automation
 
-## [0.6.0] 2024-10-09
+## [0.6.0] - 2024-10-09
 
 ### Changed
 
 - Create a setting for the number of digits in the version display
 
-## [0.5.0] 2024-10-06
+## [0.5.0] - 2024-10-06
 
 ### Changed
 
 - Menu item gesture display improvements
 
-## [0.4.0] 2024-10-06
+## [0.4.0] - 2024-10-06
 
 ### Added
 
 - Method for finding menu item by name
 - Method for adding a submenu item to a menu
 
-## [0.3.0] 2024-10-04
+## [0.3.0] - 2024-10-04
 
 ### Added
 
 - Markdown view for about popup
 
-## [0.2.0] 2024-10-04
+## [0.2.0] - 2024-10-04
 
 ### Added
 
