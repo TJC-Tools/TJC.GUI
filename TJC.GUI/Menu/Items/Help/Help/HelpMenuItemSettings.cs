@@ -1,8 +1,6 @@
-﻿using TJC.Singleton;
+﻿namespace TJC.GUI.Menu.Items.Help.About;
 
-namespace TJC.GUI.Menu.Items.Help.About;
-
-public class HelpMenuItemSettings : SingletonBase<AboutMenuItemSettings>
+public class HelpMenuItemSettings
 {
     /// <summary>
     /// Contents of the help dialog.

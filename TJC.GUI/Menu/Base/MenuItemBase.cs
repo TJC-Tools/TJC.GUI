@@ -1,5 +1,4 @@
 ﻿using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Input;
 using Avalonia.Threading;
 using System.Reactive;
 using System.Reactive.Linq;
@@ -54,9 +53,9 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
         // Create the menu item
         var menuItem = new MenuItem
         {
-            Header       = header,
-            Command      = CreateCommand(),
-            ItemsSource  = subMenuItems,
+            Header = header,
+            Command = CreateCommand(),
+            ItemsSource = subMenuItems,
             InputGesture = settings.Gesture ?? DefaultGesture
         };
         return menuItem;

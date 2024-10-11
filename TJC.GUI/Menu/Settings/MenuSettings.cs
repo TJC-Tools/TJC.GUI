@@ -6,6 +6,12 @@ namespace TJC.GUI.Menu.Settings;
 
 public class MenuSettings : SingletonBase<MenuSettings>
 {
+    #region Singleton Constructor
+
+    private MenuSettings() { }
+
+    #endregion
+
     #region Properties
 
     internal Assembly? Assembly { get; set; }
