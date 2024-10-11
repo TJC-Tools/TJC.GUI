@@ -14,23 +14,23 @@ namespace TJC.GUI.Menu.Items.Help.About;
 /// </summary>
 internal class AboutItem : MenuItemBase, ISubMenuItem
 {
-    private readonly string?  _title;
+    private readonly string? _title;
     private readonly Version? _version;
-    private readonly string   _copyright;
-    private readonly string   _license;
-    private readonly string   _thirdPartyLicenses;
-    private readonly string   _changelog;
+    private readonly string _copyright;
+    private readonly string _license;
+    private readonly string _thirdPartyLicenses;
+    private readonly string _changelog;
 
     public AboutItem() : base(MenuSettings.Instance.About)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");
-        _title              = MenuSettings.Instance.Assembly.GetTitle();
-        _version            = MenuSettings.Instance.Assembly.GetName().Version;
-        _copyright          = MenuSettings.Instance.Assembly.GetCopyright();
-        _license            = MenuSettings.Instance.Assembly.GetLicense();
+        _title = MenuSettings.Instance.Assembly.GetTitle();
+        _version = MenuSettings.Instance.Assembly.GetName().Version;
+        _copyright = MenuSettings.Instance.Assembly.GetCopyright();
+        _license = MenuSettings.Instance.Assembly.GetLicense();
         _thirdPartyLicenses = MenuSettings.Instance.Assembly.GetThirdPartyLicenses();
-        _changelog          = MenuSettings.Instance.Assembly.GetChangelog();
+        _changelog = MenuSettings.Instance.Assembly.GetChangelog(includeHeader: false, includeUnreleasedSection: false, includePaths: false);
     }
 
     public override string Header => "_About";
