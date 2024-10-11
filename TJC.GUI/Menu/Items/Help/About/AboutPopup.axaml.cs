@@ -21,7 +21,7 @@ public partial class AboutPopup : Window
 
         SetSize();
 
-        VersionTextBlock.Text = $"Version: {version?.ToString(MenuSettings.Instance.VersionDigits)}";
+        VersionTextBlock.Text = $"Version: {version?.ToString(MenuSettings.Instance.AboutSettings.VersionDigits)}";
         VersionTextBlock.IsVisible = version != null;
 
         CopyrightTextBlock.Text = copyright;

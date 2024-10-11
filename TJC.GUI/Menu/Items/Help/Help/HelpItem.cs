@@ -15,7 +15,7 @@ internal class HelpItem : MenuItemBase, ISubMenuItem
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");
         _title = MenuSettings.Instance.Assembly.GetTitle();
-        _content = MenuSettings.Instance.HelpContent;
+        _content = MenuSettings.Instance.HelpSettings.HelpContent;
     }
 
     public override string Header => "H_elp";
