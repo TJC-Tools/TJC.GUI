@@ -30,7 +30,10 @@ internal class AboutItem : MenuItemBase, ISubMenuItem
         _copyright = MenuSettings.Instance.Assembly.GetCopyright();
         _license = MenuSettings.Instance.Assembly.GetLicense();
         _thirdPartyLicenses = MenuSettings.Instance.Assembly.GetThirdPartyLicenses();
-        _changelog = MenuSettings.Instance.Assembly.GetChangelog(includeHeader: false, includeUnreleasedSection: false, includePaths: false);
+        _changelog = MenuSettings.Instance.Assembly.GetChangelog(
+            includeHeader: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludeHeader,
+            includeUnreleasedSection: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludeUnreleasedSection,
+            includePaths: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludePaths);
     }
 
     public override string Header => "_About";
