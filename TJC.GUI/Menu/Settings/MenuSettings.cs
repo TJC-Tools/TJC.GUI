@@ -53,13 +53,13 @@ public class MenuSettings : SingletonBase<MenuSettings>
     public void IncludeAllMenus()
     {
         foreach (var setting in GetSettings())
-            setting.Include.Include();
+            setting.Include();
     }
 
     public void ExcludeAllMenus()
     {
         foreach (var setting in GetSettings())
-            setting.Include.Exclude();
+            setting.Exclude();
     }
 
     #endregion
