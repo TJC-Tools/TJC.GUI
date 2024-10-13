@@ -50,7 +50,7 @@ public class MenuFactoryTests
     {
         // Arrange
         MenuSettings.Instance.ExcludeAllMenus();
-        MenuSettings.Instance.About.Include.Include();
+        MenuSettings.Instance.AboutSettings.Include.Include();
 
         // Act
         var menuItems = MenuFactory.CreateMenuItems().ToList();
