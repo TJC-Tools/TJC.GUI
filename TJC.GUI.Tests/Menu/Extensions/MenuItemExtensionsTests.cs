@@ -13,7 +13,7 @@ public class MenuItemExtensionsTests
     {
         // Arrange
         MenuSettings.Instance.ExcludeAllMenus();
-        MenuSettings.Instance.Exit.Include.Include();
+        MenuSettings.Instance.ExitSettings.Include.Include();
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         // Act
@@ -29,7 +29,7 @@ public class MenuItemExtensionsTests
     {
         // Arrange
         MenuSettings.Instance.ExcludeAllMenus();
-        MenuSettings.Instance.Exit.Include.Include();
+        MenuSettings.Instance.ExitSettings.Include.Include();
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         var fileMenu               = menuItems.FindMenuItem("FILE");
@@ -52,7 +52,7 @@ public class MenuItemExtensionsTests
     {
         // Arrange
         MenuSettings.Instance.ExcludeAllMenus();
-        MenuSettings.Instance.Exit.Include.Include();
+        MenuSettings.Instance.ExitSettings.Include.Include();
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         var fileMenu               = menuItems.FindMenuItem("FILE");

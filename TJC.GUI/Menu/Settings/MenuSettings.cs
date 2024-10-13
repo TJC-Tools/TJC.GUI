@@ -26,7 +26,7 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     #region File
 
-    public MenuItemSettings Exit { get; } = new(true);
+    public MenuItemSettings ExitSettings { get; } = new(true);
 
     #endregion
 
