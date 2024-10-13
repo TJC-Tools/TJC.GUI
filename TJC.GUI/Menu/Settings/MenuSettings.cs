@@ -47,8 +47,8 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     private IEnumerable<MenuItemSettings> GetSettings() =>
         GetType().GetProperties()
-            .Where(x => x.PropertyType == typeof(MenuItemSettings))
-            .Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
+                 .Where(x => typeof(MenuItemSettings).IsAssignableFrom(x.PropertyType))
+                 .Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
 
     public void IncludeAllMenus()
     {
