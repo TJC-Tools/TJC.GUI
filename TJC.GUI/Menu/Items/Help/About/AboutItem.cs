@@ -21,7 +21,7 @@ internal class AboutItem : MenuItemBase, ISubMenuItem
     private readonly string _thirdPartyLicenses;
     private readonly string _changelog;
 
-    public AboutItem() : base(MenuSettings.Instance.About)
+    public AboutItem() : base(MenuSettings.Instance.AboutSettings)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");

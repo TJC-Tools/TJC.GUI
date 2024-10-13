@@ -32,9 +32,8 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     #region Help
 
-    public MenuItemSettings About { get; } = new(true);
+    public AboutMenuItemSettings AboutSettings { get; set; } = new(true);
 
-    public AboutMenuItemSettings AboutSettings { get; set; } = new();
 
     public MenuItemSettings Help { get; } = new(false);
 
