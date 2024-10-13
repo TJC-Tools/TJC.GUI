@@ -15,7 +15,7 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     public MenuItem? CreateMenuItem()
     {
-        if (!settings.Include)
+        if (!settings)
             return null;
 
         InitializeStartupEvent();

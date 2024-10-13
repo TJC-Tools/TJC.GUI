@@ -5,6 +5,7 @@
                                   Action? execute = null,
                                   Func<bool>? canExecute = null,
                                   KeyGesture? gesture = null)
+        : Inclusion.Inclusion(include)
     {
         #region Predefined Types
 
@@ -13,8 +14,6 @@
         #endregion
 
         #region Properties
-
-        public Inclusion.Inclusion Include { get; set; } = new(include);
 
         public string? Header { get; set; } = header;
 

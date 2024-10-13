@@ -7,7 +7,7 @@ public class MainViewModel : ViewModelBase
 {
     public MainViewModel()
     {
-        MenuSettings.Instance.HelpSettings.Include.Include();
+        MenuSettings.Instance.HelpSettings.Include();
         MenuSettings.Instance.HelpSettings.HelpContent =
             "### Example Title\n"
           + "This is sample text for the help menu.\n"
