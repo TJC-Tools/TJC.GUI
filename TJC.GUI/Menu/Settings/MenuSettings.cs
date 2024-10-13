@@ -1,5 +1,6 @@
 using System.Reflection;
 using TJC.GUI.Menu.Items.Help.About;
+using TJC.GUI.Menu.Items.Help.Help;
 using TJC.Singleton;
 
 namespace TJC.GUI.Menu.Settings;
@@ -34,10 +35,7 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     public AboutMenuItemSettings AboutSettings { get; set; } = new(true);
 
-
-    public MenuItemSettings Help { get; } = new(false);
-
-    public HelpMenuItemSettings HelpSettings { get; set; } = new();
+    public HelpMenuItemSettings HelpSettings { get; set; } = new(false);
 
     #endregion
 
