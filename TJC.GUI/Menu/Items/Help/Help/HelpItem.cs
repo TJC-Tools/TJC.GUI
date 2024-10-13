@@ -10,7 +10,7 @@ internal class HelpItem : MenuItemBase, ISubMenuItem
     private readonly string? _title;
     private readonly string? _content;
 
-    public HelpItem() : base(MenuSettings.Instance.Help)
+    public HelpItem() : base(MenuSettings.Instance.HelpSettings)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");

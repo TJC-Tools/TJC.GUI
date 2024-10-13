@@ -1,5 +1,6 @@
 using System.Reflection;
 using TJC.GUI.Menu.Items.Help.About;
+using TJC.GUI.Menu.Items.Help.Help;
 using TJC.Singleton;
 
 namespace TJC.GUI.Menu.Settings;
@@ -26,19 +27,15 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     #region File
 
-    public MenuItemSettings Exit { get; } = new(true);
+    public MenuItemSettings ExitSettings { get; } = new(true);
 
     #endregion
 
     #region Help
 
-    public MenuItemSettings About { get; } = new(true);
+    public AboutMenuItemSettings AboutSettings { get; set; } = new(true);
 
-    public AboutMenuItemSettings AboutSettings { get; set; } = new();
-
-    public MenuItemSettings Help { get; } = new(false);
-
-    public HelpMenuItemSettings HelpSettings { get; set; } = new();
+    public HelpMenuItemSettings HelpSettings { get; set; } = new(false);
 
     #endregion
 
@@ -50,8 +47,8 @@ public class MenuSettings : SingletonBase<MenuSettings>
 
     private IEnumerable<MenuItemSettings> GetSettings() =>
         GetType().GetProperties()
-            .Where(x => x.PropertyType == typeof(MenuItemSettings))
-            .Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
+                 .Where(x => typeof(MenuItemSettings).IsAssignableFrom(x.PropertyType))
+                 .Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
 
     public void IncludeAllMenus()
     {
