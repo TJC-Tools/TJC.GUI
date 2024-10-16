@@ -22,7 +22,7 @@
 
 <br/>
 
-<a href="https://www.nuget.org/packages/TJC.GUI">
+<a href="https://github.com/TJC-Tools/TJC.GUI">
   <img alt="Last commit" src="https://img.shields.io/github/last-commit/TJC-Tools/TJC.GUI?style=for-the-badge&logo=git&logoColor=D9E0EE&labelColor=302D41&color=mediumpurple"/>
 </a>
 
