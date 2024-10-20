@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2024-10-20
+
 ### Added
 
 - Codecov reporting
@@ -60,7 +62,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changelog & third party licenses to the about popup
 
-[Unreleased]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.8.5...HEAD
+[Unreleased]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.9.0...HEAD
+
+[0.9.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.8.5...v0.9.0
 
 [0.8.5]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.8.4...v0.8.5
 
