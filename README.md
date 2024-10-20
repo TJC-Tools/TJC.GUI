@@ -4,6 +4,7 @@
 
 [![codecov](https://codecov.io/gh/TJC-Tools/TJC.GUI/graph/badge.svg?token=5NCBGG53NF)](https://codecov.io/gh/TJC-Tools/TJC.GUI)
 
+---
 ## Menu
 
 ### [MenuFactory.CreateMenuItems()](TJC.GUI/Menu/MenuFactory.cs)
