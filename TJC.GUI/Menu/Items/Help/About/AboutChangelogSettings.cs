@@ -12,5 +12,5 @@ public class AboutChangelogSettings(bool included)
 
     public bool IncludePaths { get; set; } = false;
 
-    public IStyle Style { get; set; } = MarkdownStyle.FluentAvalonia;
+    public IStyle Style { get; set; } = MarkdownStyle.FluentTheme;
 }

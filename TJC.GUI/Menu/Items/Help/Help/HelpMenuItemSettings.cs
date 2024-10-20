@@ -18,5 +18,5 @@ public class HelpMenuItemSettings(bool include,
     /// <summary>
     /// Style for the help content.
     /// </summary>
-    public IStyle Style { get; set; } = MarkdownStyle.FluentAvalonia;
+    public IStyle Style { get; set; } = MarkdownStyle.FluentTheme;
 }
