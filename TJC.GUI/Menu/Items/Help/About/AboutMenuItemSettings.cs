@@ -15,5 +15,13 @@ public class AboutMenuItemSettings(bool include,
     /// </summary>
     public int VersionDigits { get; set; } = 3;
 
+    /// <summary>
+    /// Settings for the changelog.
+    /// </summary>
     public AboutChangelogSettings ChangelogSettings { get; set; } = new(true);
+
+    /// <summary>
+    /// Settings for the license(s).
+    /// </summary>
+    public AboutLicenseSettings LicenseSettings { get; set; } = new(true);
 }

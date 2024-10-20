@@ -16,6 +16,7 @@ namespace TJC.GUI.Menu.Items.Help.Help
             SetSize();
 
             HelpBlock.Markdown = content;
+            HelpBlock.MarkdownStyle = MenuSettings.Instance.HelpSettings.Style;
         }
 
         private void SetSize()
