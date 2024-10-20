@@ -2,6 +2,8 @@
 
 [![NuGet Downloads](https://img.shields.io/nuget/dt/TJC.GUI)](https://www.nuget.org/packages/TJC.GUI) ![Size](https://img.shields.io/github/repo-size/TJC-Tools/TJC.GUI) [![License](https://img.shields.io/github/license/TJC-Tools/TJC.GUI.svg)](LICENSE)
 
+[![codecov](https://codecov.io/gh/TJC-Tools/TJC.Test/graph/badge.svg?token=92707C5KH4)](https://codecov.io/gh/TJC-Tools/TJC.GUI)
+
 ## Menu
 
 ### [MenuFactory.CreateMenuItems()](TJC.GUI/Menu/MenuFactory.cs)
