@@ -21,13 +21,17 @@ public partial class AboutPopup : Window
 
         SetSize();
 
+        // Version
         VersionTextBlock.Text = $"Version: {version?.ToString(MenuSettings.Instance.AboutSettings.VersionDigits)}";
         VersionTextBlock.IsVisible = version != null;
 
+        // Copyright
         CopyrightTextBlock.Text = copyright;
         CopyrightTextBlock.IsVisible = !string.IsNullOrEmpty(copyright);
 
+        // Changelog
         ChangelogBlock.Markdown = changelog;
+        ChangelogBlock.MarkdownStyle = MenuSettings.Instance.AboutSettings.ChangelogSettings.Style;
         ChangelogSection.IsVisible = !string.IsNullOrEmpty(changelog);
 
         // Licenses
@@ -36,6 +40,7 @@ public partial class AboutPopup : Window
             combinedLicenses += TextSeparator;
         combinedLicenses += thirdPartyLicenses;
         LicenseBlock.Markdown = combinedLicenses;
+        LicenseBlock.MarkdownStyle = MenuSettings.Instance.AboutSettings.LicenseSettings.Style;
         LicenseSection.IsVisible = !string.IsNullOrEmpty(combinedLicenses);
     }
 

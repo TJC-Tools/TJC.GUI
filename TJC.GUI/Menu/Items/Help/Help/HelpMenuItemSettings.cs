@@ -1,4 +1,7 @@
-﻿namespace TJC.GUI.Menu.Items.Help.Help;
+﻿using Avalonia.Styling;
+using Markdown.Avalonia;
+
+namespace TJC.GUI.Menu.Items.Help.Help;
 
 public class HelpMenuItemSettings(bool include,
                                   string? header = null,
@@ -11,4 +14,9 @@ public class HelpMenuItemSettings(bool include,
     /// Contents of the help dialog.
     /// </summary>
     public string HelpContent { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Style for the help content.
+    /// </summary>
+    public IStyle Style { get; set; } = MarkdownStyle.FluentTheme;
 }
