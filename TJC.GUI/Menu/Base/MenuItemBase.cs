@@ -11,6 +11,8 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     public virtual KeyGesture? DefaultGesture => null;
 
+    private KeyGesture? _keyGesture => settings.Gesture ?? DefaultGesture;
+
     #region Create
 
     public MenuItem? CreateMenuItem()
@@ -56,7 +58,7 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
             Header = header,
             Command = CreateCommand(),
             ItemsSource = subMenuItems,
-            InputGesture = settings.Gesture ?? DefaultGesture
+            InputGesture = _keyGesture
         };
         return menuItem;
     }
@@ -115,12 +117,12 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private void SetupGesture(Window window)
     {
-        if (settings.Gesture == null)
+        if (_keyGesture == null)
             return;
         var keybinding = new KeyBinding
         {
             Command = CreateCommand(),
-            Gesture = settings.Gesture
+            Gesture = _keyGesture
         };
         window?.KeyBindings.Add(keybinding);
     }
