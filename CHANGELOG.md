@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Menu item key gestures not being mapped to the window
+
+## [0.9.2] - 2024-10-26
+
+### Fixed
+
+- Opening help/about multiple times would cause it to crash
+
 ## [0.9.1] - 2024-10-26
 
 ### Added
