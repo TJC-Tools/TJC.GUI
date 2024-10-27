@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Markdown style being lost when the help/about popup is opened multiple times
+
 ## [0.9.4] - 2024-10-27
 
 ### Fixed
@@ -36,16 +40,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Codecov reporting
-
-## [0.8.5] - 2024-10-20
-
-## [0.8.4] - 2024-10-20
-
-## [0.8.3] - 2024-10-16
-
-## [0.8.2] - 2024-10-13
-
-## [0.8.1] - 2024-10-13
 
 ## [0.8.0] - 2024-10-11
 
