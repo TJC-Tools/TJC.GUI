@@ -12,5 +12,5 @@ public class AboutChangelogSettings(bool included)
 
     public bool IncludePaths { get; set; } = false;
 
-    public IStyle Style { get; set; } = StyleHelpers.DefaultMarkdownStyle;
+    public Styles Style { get; set; } = StyleHelpers.DefaultMarkdownStyle;
 }

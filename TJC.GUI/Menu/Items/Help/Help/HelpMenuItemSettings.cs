@@ -18,5 +18,5 @@ public class HelpMenuItemSettings(bool include,
     /// <summary>
     /// Style for the help content.
     /// </summary>
-    public IStyle Style { get; set; } = StyleHelpers.DefaultMarkdownStyle;
+    public Styles Style { get; set; } = StyleHelpers.DefaultMarkdownStyle;
 }
