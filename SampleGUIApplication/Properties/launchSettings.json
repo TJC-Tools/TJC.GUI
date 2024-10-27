@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "Theme (Default)": {
+      "commandName": "Project",
+      "commandLineArgs": "--theme=default"
+    },
+    "Theme (Dark)": {
+      "commandName": "Project",
+      "commandLineArgs": "--theme=dark"
+    },
+    "Theme (Light)": {
+      "commandName": "Project",
+      "commandLineArgs": "--theme=light"
+    }
+  }
+}
