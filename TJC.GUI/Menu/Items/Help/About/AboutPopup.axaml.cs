@@ -31,7 +31,11 @@ public partial class AboutPopup : Window
 
         // Changelog
         ChangelogBlock.Markdown = changelog;
-        ChangelogBlock.MarkdownStyle ??= MenuSettings.Instance.AboutSettings.ChangelogSettings.Style;
+        try
+        {
+            ChangelogBlock.MarkdownStyle = MenuSettings.Instance.AboutSettings.ChangelogSettings.Style;
+        }
+        catch { } // Try-catch is required because the style may not be set twice.
         ChangelogSection.IsVisible = !string.IsNullOrEmpty(changelog);
 
         // Licenses
@@ -40,7 +44,11 @@ public partial class AboutPopup : Window
             combinedLicenses += TextSeparator;
         combinedLicenses += thirdPartyLicenses;
         LicenseBlock.Markdown = combinedLicenses;
-        LicenseBlock.MarkdownStyle ??= MenuSettings.Instance.AboutSettings.LicenseSettings.Style;
+        try
+        {
+            LicenseBlock.MarkdownStyle = MenuSettings.Instance.AboutSettings.LicenseSettings.Style;
+        }
+        catch { } // Try-catch is required because the style may not be set twice.
         LicenseSection.IsVisible = !string.IsNullOrEmpty(combinedLicenses);
     }
 

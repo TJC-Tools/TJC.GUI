@@ -8,6 +8,7 @@
 		Title="Help Title">
 	<ScrollViewer>
         <mdxaml:MarkdownScrollViewer Name="HelpBlock"
-                                     Markdown="# Help!"/>
+                                     Markdown="# Help!"
+									 Margin="10"/>
 	</ScrollViewer>
 </Window>

@@ -1,5 +1,5 @@
 ﻿using Avalonia.Styling;
-using Markdown.Avalonia;
+using TJC.GUI.Helpers;
 
 namespace TJC.GUI.Menu.Items.Help.Help;
 
@@ -18,5 +18,5 @@ public class HelpMenuItemSettings(bool include,
     /// <summary>
     /// Style for the help content.
     /// </summary>
-    public IStyle Style { get; set; } = MarkdownStyle.FluentTheme;
+    public IStyle Style { get; set; } = StyleHelpers.DefaultMarkdownStyle;
 }
