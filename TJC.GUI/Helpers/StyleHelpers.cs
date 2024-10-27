@@ -5,5 +5,5 @@ namespace TJC.GUI.Helpers;
 
 internal static class StyleHelpers
 {
-    public static IStyle DefaultMarkdownStyle => MarkdownStyle.Standard;
+    public static Styles DefaultMarkdownStyle => MarkdownStyle.Standard;
 }
