@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Markdown style never being set
+
 ## [0.9.3] - 2024-10-26
 
 ### Fixed
