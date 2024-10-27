@@ -23,20 +23,21 @@
 					   TextAlignment="Center"
 					   HorizontalAlignment="Center"
 					   Margin="8"/>
-            <!-- CHANGELOG -->
-            <Expander DockPanel.Dock="Top"
+			<!-- CHANGELOG -->
+			<Expander DockPanel.Dock="Top"
 					  Name="ChangelogSection"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Top"
-                      HorizontalContentAlignment="Center"
-                      Margin="8">
-                <Expander.Header>
-                    <TextBlock Text="Changelog"
-                               HorizontalAlignment="Center"/>
-                </Expander.Header>
+					  HorizontalAlignment="Stretch"
+					  VerticalAlignment="Top"
+					  HorizontalContentAlignment="Center"
+					  Margin="8">
+				<Expander.Header>
+					<TextBlock Text="Changelog"
+							   HorizontalAlignment="Center"/>
+				</Expander.Header>
 				<mdxaml:MarkdownScrollViewer Name="ChangelogBlock"
-                                             Markdown="# Changelog"/>
-            </Expander>
+											 Markdown="### Changelog"
+											 Margin="10"/>
+			</Expander>
 			<!-- LICENSES -->
 			<Expander DockPanel.Dock="Top"
 					  Name="LicenseSection"
@@ -49,8 +50,9 @@
 							   HorizontalAlignment="Center"/>
 				</Expander.Header>
 				<ScrollViewer>
-                    <mdxaml:MarkdownScrollViewer Name="LicenseBlock"
-                                                 Markdown="# Licenses"/>
+					<mdxaml:MarkdownScrollViewer Name="LicenseBlock"
+												 Markdown="### Licenses"
+												 Margin="10"/>
 				</ScrollViewer>
 			</Expander>
 		</DockPanel>
