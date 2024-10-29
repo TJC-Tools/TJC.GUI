@@ -2,19 +2,22 @@ namespace TJC.GUI.Menu.Items.Help.About;
 
 public partial class AboutPopup : Window
 {
-    private const string TextSeparator = "\n===========================================================\n\n";
+    private const string TextSeparator =
+        "\n===========================================================\n\n";
 
     public AboutPopup()
     {
         InitializeComponent();
     }
 
-    public AboutPopup(string? title = null,
-                      Version? version = null,
-                      string? copyright = null,
-                      string? changelog = null,
-                      string? license = null,
-                      string? thirdPartyLicenses = null)
+    public AboutPopup(
+        string? title = null,
+        Version? version = null,
+        string? copyright = null,
+        string? changelog = null,
+        string? license = null,
+        string? thirdPartyLicenses = null
+    )
         : this()
     {
         Title = $"About {title}";
@@ -22,7 +25,8 @@ public partial class AboutPopup : Window
         SetSize();
 
         // Version
-        VersionTextBlock.Text = $"Version: {version?.ToString(MenuSettings.Instance.AboutSettings.VersionDigits)}";
+        VersionTextBlock.Text =
+            $"Version: {version?.ToString(MenuSettings.Instance.AboutSettings.VersionDigits)}";
         VersionTextBlock.IsVisible = version != null;
 
         // Copyright
@@ -31,7 +35,8 @@ public partial class AboutPopup : Window
 
         // Changelog
         ChangelogBlock.Markdown = changelog;
-        ChangelogBlock.MarkdownStyleName = MenuSettings.Instance.AboutSettings.ChangelogSettings.Style.GetStyleName();
+        ChangelogBlock.MarkdownStyleName =
+            MenuSettings.Instance.AboutSettings.ChangelogSettings.Style.GetStyleName();
         ChangelogSection.IsVisible = !string.IsNullOrEmpty(changelog);
 
         // Licenses
@@ -40,7 +45,8 @@ public partial class AboutPopup : Window
             combinedLicenses += TextSeparator;
         combinedLicenses += thirdPartyLicenses;
         LicenseBlock.Markdown = combinedLicenses;
-        LicenseBlock.MarkdownStyleName = MenuSettings.Instance.AboutSettings.LicenseSettings.Style.GetStyleName();
+        LicenseBlock.MarkdownStyleName =
+            MenuSettings.Instance.AboutSettings.LicenseSettings.Style.GetStyleName();
         LicenseSection.IsVisible = !string.IsNullOrEmpty(combinedLicenses);
     }
 

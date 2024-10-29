@@ -2,7 +2,8 @@
 
 internal class ExitCommand : MenuItemBase, ISubMenuItem
 {
-    public ExitCommand() : base(MenuSettings.Instance.ExitSettings)
+    public ExitCommand()
+        : base(MenuSettings.Instance.ExitSettings)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");

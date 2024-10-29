@@ -7,8 +7,7 @@ namespace TJC.GUI.Menu.Items.Help.Help
             InitializeComponent();
         }
 
-        public HelpPopup(string? title = null,
-                         string? content = null)
+        public HelpPopup(string? title = null, string? content = null)
             : this()
         {
             Title = $"Help {title}";

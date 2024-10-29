@@ -1,7 +1,7 @@
-﻿using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Threading;
-using System.Reactive;
+﻿using System.Reactive;
 using System.Reactive.Linq;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Threading;
 
 namespace TJC.GUI.Menu.Base;
 
@@ -33,10 +33,13 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
         else
         {
             // Run on the UI thread using the dispatcher
-            Dispatcher.UIThread.InvokeAsync(() =>
-            {
-                menuItem = DoGetMenuItem();
-            }).GetAwaiter().GetResult();
+            Dispatcher
+                .UIThread.InvokeAsync(() =>
+                {
+                    menuItem = DoGetMenuItem();
+                })
+                .GetAwaiter()
+                .GetResult();
         }
 
         return menuItem;
@@ -58,7 +61,7 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
             Header = header,
             Command = CreateCommand(),
             ItemsSource = subMenuItems,
-            InputGesture = _keyGesture
+            InputGesture = _keyGesture,
         };
         return menuItem;
     }
@@ -74,8 +77,10 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
 
     private void InitializeStartupEvent()
     {
-        if (Avalonia.Application.Current?.ApplicationLifetime
-            is IClassicDesktopStyleApplicationLifetime desktop)
+        if (
+            Avalonia.Application.Current?.ApplicationLifetime
+            is IClassicDesktopStyleApplicationLifetime desktop
+        )
             desktop.Startup += (s, e) => OnStartup(desktop);
     }
 
@@ -102,9 +107,7 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
         return ReactiveCommand.Create(execute, canExecuteObservable);
     }
 
-    protected virtual void Execute()
-    {
-    }
+    protected virtual void Execute() { }
 
     protected virtual bool CanExecute()
     {
@@ -119,11 +122,7 @@ public abstract class MenuItemBase(MenuItemSettings settings) : IMenuItem
     {
         if (_keyGesture == null)
             return;
-        var keybinding = new KeyBinding
-        {
-            Command = CreateCommand(),
-            Gesture = _keyGesture
-        };
+        var keybinding = new KeyBinding { Command = CreateCommand(), Gesture = _keyGesture };
         window?.KeyBindings.Add(keybinding);
     }
 

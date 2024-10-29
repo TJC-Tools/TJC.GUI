@@ -46,9 +46,11 @@ public class MenuSettings : SingletonBase<MenuSettings>
     #region Methods
 
     private IEnumerable<MenuItemSettings> GetSettings() =>
-        GetType().GetProperties()
-                 .Where(x => typeof(MenuItemSettings).IsAssignableFrom(x.PropertyType))
-                 .Select(x => x.GetValue(this)).Cast<MenuItemSettings>();
+        GetType()
+            .GetProperties()
+            .Where(x => typeof(MenuItemSettings).IsAssignableFrom(x.PropertyType))
+            .Select(x => x.GetValue(this))
+            .Cast<MenuItemSettings>();
 
     public void IncludeAllMenus()
     {
