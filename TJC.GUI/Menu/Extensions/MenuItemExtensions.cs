@@ -10,7 +10,11 @@ public static class MenuItemExtensions
     /// <param name="header"></param>
     /// <param name="recursive"></param>
     /// <returns></returns>
-    public static MenuItem? FindMenuItem(this IEnumerable<MenuItem> menuItems, string header, bool recursive = false)
+    public static MenuItem? FindMenuItem(
+        this IEnumerable<MenuItem> menuItems,
+        string header,
+        bool recursive = false
+    )
     {
         // Convert the menu items to a list for easier manipulation
         var menuItemList = menuItems.ToList();

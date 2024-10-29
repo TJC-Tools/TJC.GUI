@@ -32,14 +32,14 @@ public class MenuItemExtensionsTests
         MenuSettings.Instance.ExitSettings.Include();
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
-        var fileMenu               = menuItems.FindMenuItem("FILE");
+        var fileMenu = menuItems.FindMenuItem("FILE");
         var subMenuItemCountBefore = fileMenu?.ItemsSource?.Cast<object>().Count();
-        var newSubMenuItem         = new MenuItem { Header = "New" };
+        var newSubMenuItem = new MenuItem { Header = "New" };
 
         // Act
         fileMenu?.AddSubMenuItem(newSubMenuItem, index: 0);
         var subMenuItemCountAfter = fileMenu?.ItemsSource?.Cast<object>().Count();
-        var firstSubMenuItem      = fileMenu?.ItemsSource?.Cast<object>().First() as MenuItem;
+        var firstSubMenuItem = fileMenu?.ItemsSource?.Cast<object>().First() as MenuItem;
 
         // Assert
         Assert.IsNotNull(fileMenu);
@@ -55,14 +55,14 @@ public class MenuItemExtensionsTests
         MenuSettings.Instance.ExitSettings.Include();
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
-        var fileMenu               = menuItems.FindMenuItem("FILE");
+        var fileMenu = menuItems.FindMenuItem("FILE");
         var subMenuItemCountBefore = fileMenu?.ItemsSource?.Cast<object>().Count();
-        var newSubMenuItem         = new MenuItem { Header = "New" };
+        var newSubMenuItem = new MenuItem { Header = "New" };
 
         // Act
         fileMenu?.AddSubMenuItem(newSubMenuItem);
         var subMenuItemCountAfter = fileMenu?.ItemsSource?.Cast<object>().Count();
-        var lastSubMenuItem       = fileMenu?.ItemsSource?.Cast<object>().Last() as MenuItem;
+        var lastSubMenuItem = fileMenu?.ItemsSource?.Cast<object>().Last() as MenuItem;
 
         // Assert
         Assert.IsNotNull(fileMenu);

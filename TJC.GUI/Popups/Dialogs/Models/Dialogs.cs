@@ -5,13 +5,15 @@ namespace TJC.GUI.Popups.Dialogs.Models;
 
 public static class Dialogs
 {
-    public static async Task<bool> ShowYesNoDialog(string dialogTitle = "Confirmation",
-                                                   string dialogMessage = "Are you sure?",
-                                                   Window? parent = null)
+    public static async Task<bool> ShowYesNoDialog(
+        string dialogTitle = "Confirmation",
+        string dialogMessage = "Are you sure?",
+        Window? parent = null
+    )
     {
         var dialog = new YesNoDialogView
         {
-            DataContext = new YesNoDialogViewModel(dialogTitle, dialogMessage)
+            DataContext = new YesNoDialogViewModel(dialogTitle, dialogMessage),
         };
 
         var viewModel = (YesNoDialogViewModel)dialog.DataContext;
@@ -35,13 +37,15 @@ public static class Dialogs
         return await tcs.Task;
     }
 
-    public static async Task ShowOkDialog(string dialogTitle,
-                                          string dialogMessage,
-                                          Window? parent = null)
+    public static async Task ShowOkDialog(
+        string dialogTitle,
+        string dialogMessage,
+        Window? parent = null
+    )
     {
         var dialog = new OkDialogView
         {
-            DataContext = new OkDialogViewModel(dialogTitle, dialogMessage)
+            DataContext = new OkDialogViewModel(dialogTitle, dialogMessage),
         };
 
         var viewModel = (OkDialogViewModel)dialog.DataContext;
@@ -58,7 +62,6 @@ public static class Dialogs
         // Show the dialog
         if (parent != null)
             await dialog.ShowDialog(parent);
-
         else
             dialog.Show();
 

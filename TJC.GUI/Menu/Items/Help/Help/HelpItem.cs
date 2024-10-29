@@ -10,7 +10,8 @@ internal class HelpItem : MenuItemBase, ISubMenuItem
     private readonly string? _title;
     private readonly string? _content;
 
-    public HelpItem() : base(MenuSettings.Instance.HelpSettings)
+    public HelpItem()
+        : base(MenuSettings.Instance.HelpSettings)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");
@@ -24,13 +25,14 @@ internal class HelpItem : MenuItemBase, ISubMenuItem
 
     protected override void Execute()
     {
-        var popup = new HelpPopup(title: _title,
-                                  content: _content);
+        var popup = new HelpPopup(title: _title, content: _content);
 
         // If Window can be found, link it so that the popup is closed if the main window is closed.
-        if (Avalonia.Application.Current?.ApplicationLifetime
-            is IClassicDesktopStyleApplicationLifetime desktop
-            && desktop.MainWindow != null)
+        if (
+            Avalonia.Application.Current?.ApplicationLifetime
+                is IClassicDesktopStyleApplicationLifetime desktop
+            && desktop.MainWindow != null
+        )
             popup.Show(desktop.MainWindow);
         else
             popup.Show();

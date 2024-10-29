@@ -21,7 +21,8 @@ internal class AboutItem : MenuItemBase, ISubMenuItem
     private readonly string _thirdPartyLicenses;
     private readonly string _changelog;
 
-    public AboutItem() : base(MenuSettings.Instance.AboutSettings)
+    public AboutItem()
+        : base(MenuSettings.Instance.AboutSettings)
     {
         if (MenuSettings.Instance.Assembly == null)
             throw new NullReferenceException("Assembly is null.");
@@ -32,9 +33,14 @@ internal class AboutItem : MenuItemBase, ISubMenuItem
         _thirdPartyLicenses = MenuSettings.Instance.Assembly.GetThirdPartyLicenses();
         _changelog = MenuSettings.Instance.AboutSettings.ChangelogSettings
             ? MenuSettings.Instance.Assembly.GetChangelog(
-                  includeHeader: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludeHeader,
-                  includeUnreleasedSection: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludeUnreleasedSection,
-                  includePaths: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludePaths)
+                includeHeader: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludeHeader,
+                includeUnreleasedSection: MenuSettings
+                    .Instance
+                    .AboutSettings
+                    .ChangelogSettings
+                    .IncludeUnreleasedSection,
+                includePaths: MenuSettings.Instance.AboutSettings.ChangelogSettings.IncludePaths
+            )
             : string.Empty;
     }
 
@@ -42,16 +48,20 @@ internal class AboutItem : MenuItemBase, ISubMenuItem
 
     protected override void Execute()
     {
-        var popup = new AboutPopup(title: _title,
-                                   version: _version,
-                                   copyright: _copyright,
-                                   changelog: _changelog,
-                                   license: _license,
-                                   thirdPartyLicenses: _thirdPartyLicenses);
+        var popup = new AboutPopup(
+            title: _title,
+            version: _version,
+            copyright: _copyright,
+            changelog: _changelog,
+            license: _license,
+            thirdPartyLicenses: _thirdPartyLicenses
+        );
 
         // If Window can be found, show dialog to prevent main window from being clicked.
-        if (Avalonia.Application.Current?.ApplicationLifetime
-            is IClassicDesktopStyleApplicationLifetime { MainWindow: not null } desktop)
+        if (
+            Avalonia.Application.Current?.ApplicationLifetime
+            is IClassicDesktopStyleApplicationLifetime { MainWindow: not null } desktop
+        )
             popup.ShowDialog(desktop.MainWindow);
         else
             popup.Show();

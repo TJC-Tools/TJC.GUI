@@ -1,11 +1,12 @@
 ﻿namespace TJC.GUI.Menu.Settings
 {
-    public class MenuItemSettings(bool include,
-                                  string? header = null,
-                                  Action? execute = null,
-                                  Func<bool>? canExecute = null,
-                                  KeyGesture? gesture = null)
-        : Inclusion.Inclusion(include)
+    public class MenuItemSettings(
+        bool include,
+        string? header = null,
+        Action? execute = null,
+        Func<bool>? canExecute = null,
+        KeyGesture? gesture = null
+    ) : Inclusion.Inclusion(include)
     {
         #region Predefined Types
 

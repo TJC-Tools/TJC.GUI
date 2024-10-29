@@ -1,5 +1,3 @@
 ﻿namespace TJC.GUI.Menu.Interfaces;
 
-public interface ISubMenuItem : IMenuItem
-{
-}
+public interface ISubMenuItem : IMenuItem { }
