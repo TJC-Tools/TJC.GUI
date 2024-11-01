@@ -40,7 +40,7 @@
     <PackageReference Include="MessageBox.Avalonia" Version="3.1.6.13" />
     <PackageReference Include="ReactiveUI" Version="20.1.63" />
     <PackageReference Include="TJC.AssemblyExtensions" Version="0.6.0" />
-    <PackageReference Include="TJC.Inclusion" Version="0.2.0" />
+    <PackageReference Include="TJC.Inclusion" Version="0.3.1" />
     <PackageReference Include="TJC.Singleton" Version="0.3.0" />
   </ItemGroup>
   <!-- TESTS -->
