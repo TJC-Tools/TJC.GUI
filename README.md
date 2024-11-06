@@ -7,14 +7,3 @@
 [![License](https://img.shields.io/github/license/TJC-Tools/TJC.GUI.svg)](LICENSE)
 
 [![codecov](https://codecov.io/gh/TJC-Tools/TJC.GUI/graph/badge.svg?token=5NCBGG53NF)](https://codecov.io/gh/TJC-Tools/TJC.GUI)
-
----
-## Menu
-
-### [MenuFactory.CreateMenuItems()](TJC.GUI/Menu/MenuFactory.cs)
-> Returns a list of `MenuItem` objects that represent the menu items for the application.
-
-### [MenuSettings](TJC.GUI/Menu/Settings/MenuSettings.cs)
-> Contains the settings for the menu.
-> Can be modified to include/exclude menu items.
-> Can be used to change the functionality of the menu items.
