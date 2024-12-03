@@ -41,7 +41,7 @@
 	  <PackageReference Include="Avalonia.ReactiveUI" Version="11.2.2" />
 	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0" />
 	  <PackageReference Include="Material.Avalonia" Version="3.7.4" />
-	  <PackageReference Include="TJC.ConsoleApplication" Version="0.13.1" />
+	  <PackageReference Include="TJC.ConsoleApplication" Version="0.14.3" />
 	</ItemGroup>
 	<!-- DEPENDENCIES -->
 	<ItemGroup>
