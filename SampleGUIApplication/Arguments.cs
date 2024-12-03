@@ -15,11 +15,13 @@ internal class Arguments
 
     internal static ThemeVariant Theme { get; private set; } = ThemeVariant.Default;
 
-    internal static readonly ConsoleArguments ConsoleArguments =
-        new(flagRequired: true, logParsedOptions: false)
-        {
-            { "theme=", v => Theme = ParseTheme(v), "Theme" },
-        };
+    internal static readonly ConsoleArguments ConsoleArguments = new(
+        flagRequired: true,
+        logParsedOptions: false
+    )
+    {
+        { "theme=", v => Theme = ParseTheme(v), "Theme" },
+    };
 
     private static ThemeVariant ParseTheme(string theme) =>
         theme.ToLower() switch
