@@ -35,11 +35,11 @@
 		<EmbeddedResource Include="..\THIRD-PARTY-LICENSES" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="Avalonia" Version="11.2.2" />
+	  <PackageReference Include="Avalonia" Version="11.2.3" />
 	  <PackageReference Include="Avalonia.Desktop" Version="11.1.4" />
 	  <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.4" />
 	  <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.4" />
-	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.2" />
+	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.3" />
 	  <PackageReference Include="Material.Avalonia" Version="3.7.4" />
 	  <PackageReference Include="TJC.ConsoleApplication" Version="0.14.3" />
 	</ItemGroup>
