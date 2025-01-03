@@ -41,7 +41,7 @@
     <PackageReference Include="ReactiveUI" Version="20.1.63" />
     <PackageReference Include="TJC.AssemblyExtensions" Version="0.6.0" />
     <PackageReference Include="TJC.Inclusion" Version="0.2.0" />
-    <PackageReference Include="TJC.Singleton" Version="0.5.3" />
+    <PackageReference Include="TJC.Singleton" Version="0.5.5" />
   </ItemGroup>
   <!-- TESTS -->
   <ItemGroup>
