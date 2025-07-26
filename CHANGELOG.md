@@ -98,23 +98,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [0.11.7]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.6...v0.11.7
 
-[0.11.6]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.5...v0.11.6
 
-[0.11.5]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.4...v0.11.5
 
-[0.11.4]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.3...v0.11.4
 
 [0.11.3]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.2...v0.11.3
 
 [0.11.2]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.1...v0.11.2
 
-[0.11.1]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.0...v0.11.1
 
-[0.11.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.10.0...v0.11.0
 
-[0.10.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.9.6...v0.10.0
 
-[0.9.6]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.9.5...v0.9.6
 
 [0.9.5]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.9.4...v0.9.5
 
@@ -128,7 +121,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [0.9.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.8.0...v0.9.0
 
-[0.8.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.7.0...v0.8.0
 
 [0.7.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.6.0...v0.7.0
 
