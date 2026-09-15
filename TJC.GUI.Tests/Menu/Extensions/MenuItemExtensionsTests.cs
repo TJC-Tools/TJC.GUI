@@ -5,7 +5,6 @@ using TJC.GUI.Menu.Settings;
 
 namespace TJC.GUI.Tests.Menu.Extensions;
 
-
 public class MenuItemExtensionsTests
 {
     [Fact]
@@ -74,7 +73,11 @@ public class MenuItemExtensionsTests
     public void FindMenuItem_RecursiveSearch_FindsNestedItemAndReturnsNullWhenMissing()
     {
         var nested = new MenuItem { Header = "_Nested" };
-        var root = new MenuItem { Header = "_Root", ItemsSource = new List<MenuItem> { nested } };
+        var root = new MenuItem
+        {
+            Header = "_Root",
+            ItemsSource = new List<MenuItem> { nested },
+        };
 
         Assert.Same(nested, new[] { root }.FindMenuItem("nested", recursive: true));
         Assert.Null(new[] { root }.FindMenuItem("nested"));

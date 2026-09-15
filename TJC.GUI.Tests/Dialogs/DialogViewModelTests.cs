@@ -3,7 +3,6 @@ using TJC.GUI.Popups.Dialogs.ViewModels;
 
 namespace TJC.GUI.Tests.Dialogs;
 
-
 public class DialogViewModelTests
 {
     [Fact]

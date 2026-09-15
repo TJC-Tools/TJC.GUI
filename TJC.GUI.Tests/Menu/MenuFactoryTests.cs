@@ -3,7 +3,6 @@ using TJC.GUI.Menu.Settings;
 
 namespace TJC.GUI.Tests.Menu;
 
-
 public class MenuFactoryTests
 {
     [Fact]
@@ -14,7 +13,7 @@ public class MenuFactoryTests
 
         // Assert
         Assert.NotNull(menuItems);
-        Assert.NotEqual(0, menuItems.Count);
+        Assert.NotEmpty(menuItems);
     }
 
     [Fact]
@@ -28,7 +27,7 @@ public class MenuFactoryTests
 
         // Assert
         Assert.NotNull(menuItems);
-        Assert.Equal(0, menuItems.Count);
+        Assert.Empty(menuItems);
     }
 
     [Fact]
@@ -42,7 +41,7 @@ public class MenuFactoryTests
 
         // Assert
         Assert.NotNull(menuItems);
-        Assert.NotEqual(0, menuItems.Count);
+        Assert.NotEmpty(menuItems);
     }
 
     [Fact]
@@ -57,6 +56,6 @@ public class MenuFactoryTests
 
         // Assert
         Assert.NotNull(menuItems);
-        Assert.Equal(1, menuItems.Count);
+        Assert.Single(menuItems);
     }
 }
