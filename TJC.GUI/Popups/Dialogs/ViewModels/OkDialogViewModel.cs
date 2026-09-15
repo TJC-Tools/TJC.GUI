@@ -1,4 +1,4 @@
-﻿using System.Reactive;
+using System.Reactive;
 
 namespace TJC.GUI.Popups.Dialogs.ViewModels;
 

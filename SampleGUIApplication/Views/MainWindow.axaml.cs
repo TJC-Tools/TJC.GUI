@@ -1,4 +1,4 @@
-﻿namespace SampleGUIApplication.Views;
+namespace SampleGUIApplication.Views;
 
 public partial class MainWindow : Window
 {

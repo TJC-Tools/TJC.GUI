@@ -1,4 +1,4 @@
-﻿namespace TJC.GUI.Menu.Settings
+namespace TJC.GUI.Menu.Settings
 {
     public class MenuItemSettings(
         bool include,

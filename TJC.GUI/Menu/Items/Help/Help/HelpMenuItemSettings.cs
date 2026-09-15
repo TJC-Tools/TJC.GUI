@@ -1,4 +1,4 @@
-﻿using Avalonia.Styling;
+using Avalonia.Styling;
 using TJC.GUI.Helpers;
 
 namespace TJC.GUI.Menu.Items.Help.Help;

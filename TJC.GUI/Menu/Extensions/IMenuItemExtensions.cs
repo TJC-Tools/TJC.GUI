@@ -1,4 +1,4 @@
-﻿namespace TJC.GUI.Menu.Extensions;
+namespace TJC.GUI.Menu.Extensions;
 
 public static class IMenuItemExtensions
 {

@@ -1,3 +1,3 @@
-﻿namespace SampleGUIApplication.ViewModels;
+namespace SampleGUIApplication.ViewModels;
 
 public class ViewModelBase : ReactiveObject { }

@@ -3,21 +3,21 @@ using TJC.GUI.Menu.Settings;
 
 namespace TJC.GUI.Tests.Menu;
 
-[TestClass]
+
 public class MenuFactoryTests
 {
-    [TestMethod]
+    [Fact]
     public void DefaultSettings_MenuFactory_CreateMenuItems_ExpectSomeMenus()
     {
         // Act
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         // Assert
-        Assert.IsNotNull(menuItems);
-        Assert.AreNotEqual(0, menuItems.Count);
+        Assert.NotNull(menuItems);
+        Assert.NotEqual(0, menuItems.Count);
     }
 
-    [TestMethod]
+    [Fact]
     public void ExcludeAllMenus_MenuFactory_CreateMenuItems_ExpectNoMenus()
     {
         // Arrange
@@ -27,11 +27,11 @@ public class MenuFactoryTests
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         // Assert
-        Assert.IsNotNull(menuItems);
-        Assert.AreEqual(0, menuItems.Count);
+        Assert.NotNull(menuItems);
+        Assert.Equal(0, menuItems.Count);
     }
 
-    [TestMethod]
+    [Fact]
     public void IncludeAllMenus_MenuFactory_CreateMenuItems_ExpectMultipleMenus()
     {
         // Arrange
@@ -41,11 +41,11 @@ public class MenuFactoryTests
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         // Assert
-        Assert.IsNotNull(menuItems);
-        Assert.AreNotEqual(0, menuItems.Count);
+        Assert.NotNull(menuItems);
+        Assert.NotEqual(0, menuItems.Count);
     }
 
-    [TestMethod]
+    [Fact]
     public void ExcludeAllMenus_IncludeAbout_MenuFactory_CreateMenuItems_Expect1Menu()
     {
         // Arrange
@@ -56,7 +56,7 @@ public class MenuFactoryTests
         var menuItems = MenuFactory.CreateMenuItems().ToList();
 
         // Assert
-        Assert.IsNotNull(menuItems);
-        Assert.AreEqual(1, menuItems.Count);
+        Assert.NotNull(menuItems);
+        Assert.Equal(1, menuItems.Count);
     }
 }

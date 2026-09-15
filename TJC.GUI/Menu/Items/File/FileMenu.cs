@@ -1,4 +1,4 @@
-﻿namespace TJC.GUI.Menu.Items.File;
+namespace TJC.GUI.Menu.Items.File;
 
 internal class FileMenu() : MenuItemBase(MenuItemSettings.MainMenu), IMainMenuItem
 {

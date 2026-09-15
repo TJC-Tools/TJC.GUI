@@ -1,4 +1,4 @@
-﻿using TJC.GUI.Menu;
+using TJC.GUI.Menu;
 using TJC.GUI.Menu.Settings;
 
 namespace SampleGUIApplication.ViewModels;

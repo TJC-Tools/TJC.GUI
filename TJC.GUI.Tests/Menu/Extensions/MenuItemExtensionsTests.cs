@@ -5,10 +5,10 @@ using TJC.GUI.Menu.Settings;
 
 namespace TJC.GUI.Tests.Menu.Extensions;
 
-[TestClass]
+
 public class MenuItemExtensionsTests
 {
-    [TestMethod]
+    [Fact]
     public void FindMenuItem_File_ReturnsNotNull()
     {
         // Arrange
@@ -20,11 +20,11 @@ public class MenuItemExtensionsTests
         var fileMenu = menuItems.FindMenuItem("FILE");
 
         // Assert
-        Assert.IsNotNull(fileMenu);
-        Assert.AreEqual("_File", fileMenu.Header);
+        Assert.NotNull(fileMenu);
+        Assert.Equal("_File", fileMenu.Header);
     }
 
-    [TestMethod]
+    [Fact]
     public void AddSubMenuItem_ToStart_IsFirstItem()
     {
         // Arrange
@@ -42,12 +42,12 @@ public class MenuItemExtensionsTests
         var firstSubMenuItem = fileMenu?.ItemsSource?.Cast<object>().First() as MenuItem;
 
         // Assert
-        Assert.IsNotNull(fileMenu);
-        Assert.AreEqual(subMenuItemCountBefore + 1, subMenuItemCountAfter);
-        Assert.AreEqual(newSubMenuItem.Header, firstSubMenuItem?.Header);
+        Assert.NotNull(fileMenu);
+        Assert.Equal(subMenuItemCountBefore + 1, subMenuItemCountAfter);
+        Assert.Equal(newSubMenuItem.Header, firstSubMenuItem?.Header);
     }
 
-    [TestMethod]
+    [Fact]
     public void AddSubMenuItem_ToEnd_IsLastItem()
     {
         // Arrange
@@ -65,23 +65,23 @@ public class MenuItemExtensionsTests
         var lastSubMenuItem = fileMenu?.ItemsSource?.Cast<object>().Last() as MenuItem;
 
         // Assert
-        Assert.IsNotNull(fileMenu);
-        Assert.AreEqual(subMenuItemCountBefore + 1, subMenuItemCountAfter);
-        Assert.AreEqual(newSubMenuItem.Header, lastSubMenuItem?.Header);
+        Assert.NotNull(fileMenu);
+        Assert.Equal(subMenuItemCountBefore + 1, subMenuItemCountAfter);
+        Assert.Equal(newSubMenuItem.Header, lastSubMenuItem?.Header);
     }
 
-    [TestMethod]
+    [Fact]
     public void FindMenuItem_RecursiveSearch_FindsNestedItemAndReturnsNullWhenMissing()
     {
         var nested = new MenuItem { Header = "_Nested" };
         var root = new MenuItem { Header = "_Root", ItemsSource = new List<MenuItem> { nested } };
 
-        Assert.AreSame(nested, new[] { root }.FindMenuItem("nested", recursive: true));
-        Assert.IsNull(new[] { root }.FindMenuItem("nested"));
-        Assert.IsNull(new[] { root }.FindMenuItem("missing", recursive: true));
+        Assert.Same(nested, new[] { root }.FindMenuItem("nested", recursive: true));
+        Assert.Null(new[] { root }.FindMenuItem("nested"));
+        Assert.Null(new[] { root }.FindMenuItem("missing", recursive: true));
     }
 
-    [TestMethod]
+    [Fact]
     public void AddSubMenuItem_WithoutExistingItems_CreatesItemList()
     {
         var parent = new MenuItem();
@@ -89,6 +89,6 @@ public class MenuItemExtensionsTests
 
         parent.AddSubMenuItem(child);
 
-        CollectionAssert.AreEqual(new List<object> { child }, parent.ItemsSource!.Cast<object>().ToList());
+        Assert.Equal(new List<object> { child }, parent.ItemsSource!.Cast<object>().ToList());
     }
 }

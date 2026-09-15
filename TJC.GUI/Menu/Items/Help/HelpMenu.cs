@@ -1,4 +1,4 @@
-﻿using TJC.GUI.Menu.Items.Help.About;
+using TJC.GUI.Menu.Items.Help.About;
 using TJC.GUI.Menu.Items.Help.Help;
 
 namespace TJC.GUI.Menu.Items.Help;

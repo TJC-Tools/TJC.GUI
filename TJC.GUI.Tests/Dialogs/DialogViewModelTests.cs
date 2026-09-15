@@ -3,10 +3,10 @@ using TJC.GUI.Popups.Dialogs.ViewModels;
 
 namespace TJC.GUI.Tests.Dialogs;
 
-[TestClass]
+
 public class DialogViewModelTests
 {
-    [TestMethod]
+    [Fact]
     public void OkCommand_RaisesDialogClosedEvent()
     {
         var viewModel = new OkDialogViewModel("Title", "Message");
@@ -15,12 +15,12 @@ public class DialogViewModelTests
 
         viewModel.OkCommand.Execute().Subscribe();
 
-        Assert.AreEqual("Title", viewModel.DialogTitle);
-        Assert.AreEqual("Message", viewModel.DialogMessage);
-        Assert.IsTrue(closed);
+        Assert.Equal("Title", viewModel.DialogTitle);
+        Assert.Equal("Message", viewModel.DialogMessage);
+        Assert.True(closed);
     }
 
-    [TestMethod]
+    [Fact]
     public void YesAndNoCommands_RaiseExpectedResults()
     {
         var viewModel = new YesNoDialogViewModel("Title", "Message");
@@ -28,9 +28,9 @@ public class DialogViewModelTests
         viewModel.DialogResult += value => result = value;
 
         viewModel.YesCommand.Execute().Subscribe();
-        Assert.IsTrue(result);
+        Assert.True(result);
 
         viewModel.NoCommand.Execute().Subscribe();
-        Assert.IsFalse(result);
+        Assert.False(result);
     }
 }

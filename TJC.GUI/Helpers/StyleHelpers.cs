@@ -1,4 +1,4 @@
-﻿using Avalonia.Styling;
+using Avalonia.Styling;
 using Markdown.Avalonia;
 
 namespace TJC.GUI.Helpers;

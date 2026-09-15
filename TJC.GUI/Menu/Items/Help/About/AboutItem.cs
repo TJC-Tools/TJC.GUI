@@ -1,4 +1,4 @@
-﻿using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Controls.ApplicationLifetimes;
 
 namespace TJC.GUI.Menu.Items.Help.About;
 

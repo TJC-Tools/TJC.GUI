@@ -1,4 +1,4 @@
-﻿using TJC.GUI.Popups.Dialogs.ViewModels;
+using TJC.GUI.Popups.Dialogs.ViewModels;
 using TJC.GUI.Popups.Dialogs.Views;
 
 namespace TJC.GUI.Popups.Dialogs.Models;

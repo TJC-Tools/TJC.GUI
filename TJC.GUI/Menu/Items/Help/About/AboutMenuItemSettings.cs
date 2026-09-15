@@ -1,4 +1,4 @@
-﻿namespace TJC.GUI.Menu.Items.Help.About;
+namespace TJC.GUI.Menu.Items.Help.About;
 
 public class AboutMenuItemSettings(
     bool include,
