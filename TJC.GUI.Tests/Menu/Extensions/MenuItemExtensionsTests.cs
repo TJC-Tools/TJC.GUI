@@ -69,4 +69,26 @@ public class MenuItemExtensionsTests
         Assert.AreEqual(subMenuItemCountBefore + 1, subMenuItemCountAfter);
         Assert.AreEqual(newSubMenuItem.Header, lastSubMenuItem?.Header);
     }
+
+    [TestMethod]
+    public void FindMenuItem_RecursiveSearch_FindsNestedItemAndReturnsNullWhenMissing()
+    {
+        var nested = new MenuItem { Header = "_Nested" };
+        var root = new MenuItem { Header = "_Root", ItemsSource = new List<MenuItem> { nested } };
+
+        Assert.AreSame(nested, new[] { root }.FindMenuItem("nested", recursive: true));
+        Assert.IsNull(new[] { root }.FindMenuItem("nested"));
+        Assert.IsNull(new[] { root }.FindMenuItem("missing", recursive: true));
+    }
+
+    [TestMethod]
+    public void AddSubMenuItem_WithoutExistingItems_CreatesItemList()
+    {
+        var parent = new MenuItem();
+        var child = new MenuItem { Header = "Child" };
+
+        parent.AddSubMenuItem(child);
+
+        CollectionAssert.AreEqual(new List<object> { child }, parent.ItemsSource!.Cast<object>().ToList());
+    }
 }
