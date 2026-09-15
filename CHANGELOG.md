@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-09-15
+
 ### Changed
 
 - Updated to .NET 10
@@ -106,7 +108,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Changelog & third party licenses to the about popup
 
-[Unreleased]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.9...HEAD
+[Unreleased]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.12.0...HEAD
+
+[0.12.0]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.9...v0.12.0
 
 [0.11.9]: https://github.com/TJC-Tools/TJC.GUI/compare/v0.11.8...v0.11.9
 
